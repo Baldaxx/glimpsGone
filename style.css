@@ -14,7 +14,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; 
     font-family: 'Lato';
     background-color: #161616;
     min-height: 100vh;
@@ -30,13 +29,13 @@ body {
 .titre {
     color: white;
     font-family: 'TheNextFont', 'arial';
-    font-size: 4vw;
+    font-size: 4rem;
 }
 
 .titre2 {
     color: white;
     font-family: dancingSCript, 'arial';
-    font-size: 1.5vw;
+    font-size: 2rem;
     text-align: end;
     margin-right: 95px;
 }
@@ -68,7 +67,7 @@ nav li a {
 }
 
 nav li a:hover {
-    color: #02A551;
+    color: #4b4b4b;
 }
 
 .ligne {
@@ -80,9 +79,8 @@ nav li a:hover {
 .titre3 h3 {
     color: #161616;
     font-family: 'TheNextFont', 'arial';
-    font-size: 4vw;
+    font-size: 4.8rem;
     background-color: #02A551;
-    width: 20%;
     position: absolute;
     top: 460px;
     left: 200px;
@@ -99,7 +97,7 @@ nav li a:hover {
     top: 455px;
     left: 600px;
     padding-right: 100px;
-    font-size: 1vw;
+    font-size: 1.2rem;
 }
 
 .text span {
@@ -112,4 +110,87 @@ nav li a:hover {
     color: white;
     text-align: center;
     padding-top: 600px;
+}
+
+.menuBurger {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+
+    .titre {
+        font-size: 3rem;
+    }
+
+    .titre2 {
+        font-size: 1.3rem;
+        text-align: end;
+        margin-right: 19px;
+    }
+    .nav-container {
+        display: none;
+    }
+    .menuBurger {
+        display: block;
+        text-align: end;
+        width: 95%;
+    }
+
+    .menuBurgerA {        
+        text-decoration: none; 
+        color: white; 
+        font-size: 2rem;
+        font-family: 'TheNextFont', 'arial';
+    }
+
+    .titre3 h3 {
+        margin-top: 10px;
+        font-size: 3.4rem;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%);
+    }
+    .text {
+        color: white;
+        font-size: 1rem;
+        position: absolute;
+        top: 500px;
+        left: 50px;
+        width: 100%;
+        text-align: center;
+        padding-top: 70px;
+    }
+
+    .text span {
+        position: relative;
+        left: 0px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .footerText {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1536px) {
+
+    .titre3 h3 {
+        margin-top: 10px;
+        font-size: 4.4rem;
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%);
+    }
+
+    .text {
+        color: white;
+        font-size: 1rem;
+        position: absolute;
+        top: 500px;
+        left: 50px;
+        width: 100%;
+        text-align: center;
+        padding-top: 70px;
+    }
 }
