@@ -76,7 +76,7 @@ nav li a:hover {
     margin: auto;
 }
 
-.titre3 h3 {
+.titre3 {
     color: #161616;
     font-family: 'TheNextFont', 'arial';
     font-size: 4.8rem;
@@ -84,6 +84,27 @@ nav li a:hover {
     position: absolute;
     top: 460px;
     left: 200px;
+}
+
+.titre3GalerieText {
+    font-family: 'TheNextFont', 'arial';
+    font-size: 2.8rem;
+    background-color: #7070ff;
+    color: white;
+    width: 30%;
+}
+
+.tailleTableau {
+    width: 100%;
+}
+
+.galerieText {
+    color : white;
+    font-family: 'lato', 'arial';
+    font-size: 1.2rem;
+}
+.titre3GalerieText span {
+    color: #161616;
 }
 
 .spanBlanc {
