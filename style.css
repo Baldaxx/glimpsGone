@@ -86,7 +86,7 @@ nav li a:hover {
 .titreProposer {
     color: #161616;
     font-family: 'TheNextFont', 'arial';
-    font-size: 4.8rem;
+    font-size: 2rem;
     background-color: #fc9701;
 }
 
@@ -139,6 +139,13 @@ nav li a:hover {
 .text span {
     position: absolute;
     left: -400px
+}
+
+.container-fluid input, #inputCommentaire{
+    background-color: rgba(255, 255, 255, 0.26);
+    border: none;
+    resize: none;
+    font-family: 'lato', 'arial';
 }
 
 .footerText {
