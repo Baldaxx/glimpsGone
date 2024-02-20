@@ -141,11 +141,28 @@ nav li a:hover {
     left: -400px
 }
 
-.container-fluid input, #inputCommentaire{
-    background-color: rgba(255, 255, 255, 0.26);
-    border: none;
-    resize: none;
-    font-family: 'lato', 'arial';
+.form-control, .form-control:focus, #inputCommentaire, #inputCommentaire:focus {
+    color: rgb(255, 255, 255) !important; 
+    background-color: rgba(255, 255, 255, 0.185) !important; 
+    border: none !important; 
+    resize: none !important; 
+    font-size: 1.2rem !important; 
+    font-family: 'Lato', 'Arial' !important; 
+    box-shadow: none !important; /
+}
+
+::placeholder { 
+    color: rgb(255, 255, 255) !important; 
+    opacity: 1 !important; 
+}
+
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover, 
+.form-control:-webkit-autofill:focus, 
+.form-control:-webkit-autofill:active  {
+    -webkit-text-fill-color: rgb(255, 255, 255) !important;
+    -webkit-box-shadow:  rgba(255, 255, 255, 0.185) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .footerText {
