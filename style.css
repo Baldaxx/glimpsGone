@@ -83,6 +83,17 @@ nav li a:hover {
     background-color: #02A551;
 }
 
+.titreProposer {
+    color: #161616;
+    font-family: 'TheNextFont', 'arial';
+    font-size: 4.8rem;
+    background-color: #fc9701;
+}
+
+.titreProposer span {
+    color : white
+}
+
 .titre3 span {
     color: white;
 }
