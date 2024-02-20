@@ -106,7 +106,7 @@ nav li a:hover {
 .galerieText {
     color : white;
     font-family: 'lato', 'arial';
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding-right: 1rem;
 }
 .titre3GalerieText span {
@@ -141,6 +141,12 @@ nav li a:hover {
 
 .menuBurger {
     display: none;
+}
+
+button, .resultat {
+background-color: #161616;
+color : white;
+font-family: 'theNextFont', 'arial';
 }
 
 @media (max-width: 1024px) {
