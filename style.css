@@ -17,7 +17,7 @@ body {
     margin: 0;
     font-family: 'Lato light';
     background-color: #161616;
-  }
+}
 
 .logo {
     width: 30%;
@@ -67,12 +67,6 @@ nav li a:hover {
     color: #4b4b4b;
 }
 
-.ligne {
-    color: white;
-    width: 90%;
-    margin: auto;
-}
-
 .textIndex {
     color: white;
     font-family: 'Lato light', 'arial';
@@ -80,6 +74,13 @@ nav li a:hover {
     font-size: 1rem;
     padding-top: 100px;
     padding-left: 70px;
+    padding-right: 70px;
+}
+
+.texteFocus {
+    font-size: 1.7rem;
+    color: #02A551;
+    font-family: 'lato', 'arial';
 }
 
 .titreIndex {
@@ -117,7 +118,6 @@ nav li a:hover {
 .tableau {
     width: 80%; 
 }
-
 
 .galerieText {
     color : white;
@@ -160,10 +160,10 @@ nav li a:hover {
 }
 
 .accordionText {
-    color: rgb(255, 255, 255);
-    font-size: 1rem;
+    color: #02A551;
+    font-size: 1.3rem;
     font-family: 'lato light', 'arial'!important;
-    padding: 8%;
+    padding: 2.5%;
 }
 .container-fluid button {
 background-color: rgba(247, 0, 0, 0);
@@ -172,7 +172,7 @@ font-family: 'lato light', 'arial'!important;
 }
 
 .collapsed {
-    font-size: 1rem;
+    font-size:1.6rem;
     font-family: 'lato light', 'arial';
 }
 
@@ -189,6 +189,18 @@ font-family: 'lato light', 'arial'!important;
 .textProposerMerci {
     padding-top: 100px;
     text-align: center;
+    font-size: 1.5rem;
+    font-size: 'lato light', 'arial';
+}
+
+.textFocusOrange {
+    color: #fc9701;
+    font-family: 'lato', 'arial';
+}
+
+.textFocusViolet{
+    color: #7070ff;
+    font-family: 'lato', 'arial';
 }
 
 .menuBurger {
@@ -239,6 +251,10 @@ footer {
     }
 
 @media (max-width: 1024px) {
+    .titre {
+        font-size: 3rem;
+    }
+
     .nav-container {
         display: none;
     }
@@ -256,6 +272,9 @@ footer {
         display: block;
         text-align: end;
         width: 95%;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        margin: auto;
     }
 
     .menuBurger button {
@@ -263,19 +282,9 @@ footer {
     }
     .burger {
         width: 60px;
-        height: 40px;
+        height: 30px;
     }
 
-    .menuBurgerA {        
-        text-decoration: none; 
-        color: white; 
-        font-size: 2rem;
-        font-family: 'TheNextFont', 'arial';
-    }
-
-    .footerText {
-        display: none;
-    }
     .galerieText {
         font-size: 1rem;
     }
