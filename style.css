@@ -89,8 +89,14 @@ nav li a:hover {
     font-size: 2rem;
     background-color: #fc9701;
 }
+.titreFaq {
+    color: #161616;
+    font-family: 'TheNextFont', 'arial';
+    font-size: 2rem;
+    background-color: #02a551; 
+}
 
-.titreProposer span {
+.titreProposer, .titreFaq span {
     color : white
 }
 
@@ -143,7 +149,7 @@ nav li a:hover {
 
 .form-control, .form-control:focus, #inputCommentaire, #inputCommentaire:focus {
     color: rgb(255, 255, 255) !important; 
-    background-color: rgba(255, 255, 255, 0.185) !important; 
+    background-color: rgba(255, 255, 255, 0.062)!important; 
     border: none !important; 
     resize: none !important; 
     font-size: 1.2rem !important; 
@@ -163,6 +169,37 @@ nav li a:hover {
     -webkit-text-fill-color: rgb(255, 255, 255) !important;
     -webkit-box-shadow:  rgba(255, 255, 255, 0.185) inset !important;
     transition: background-color 5000s ease-in-out 0s;
+}
+
+.container-center {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.accordion-item {
+    background-color: rgba(255, 255, 255, 0.062);
+    border: none;
+    font-size: 1.2rem;
+    font-family: 'lato', 'arial'!important;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+}
+
+.accordionText {
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    font-family: 'lato', 'arial'!important;
+}
+.container-fluid button {
+background-color: rgba(247, 0, 0, 0);
+border: none;
+font-family: 'lato', 'arial'!important;
+}
+
+.collapsed {
+    font-size: 1.2rem;
+    font-family: 'lato', 'arial';
 }
 
 .footerText {
@@ -208,12 +245,18 @@ font-family: 'theNextFont', 'arial';
         font-family: 'TheNextFont', 'arial';
     }
 
-
     .footerText {
         display: none;
     }
     .galerieText {
         font-size: 1rem;
     }
+
+    .accordionText {
+        padding: 20px;}
+
+    .accordion-item {
+        margin-left: 00px;
+        margin-right: 00px;
 }
 
