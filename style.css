@@ -81,7 +81,7 @@ nav li a:hover {
     font-family: 'Lato light', 'arial';
     padding-right: 100px;
     font-size: 1rem;
-    padding-top: 130px;
+    padding-top: 100px;
     padding-left: 70px;
 }
 
@@ -118,7 +118,7 @@ nav li a:hover {
 }
 
 .tableau {
-    width: 100%; 
+    width: 80%; 
 }
 
 
@@ -126,7 +126,6 @@ nav li a:hover {
     color : white;
     font-family: 'lato light', 'arial';
     font-size: 1rem;
-    padding-right: 1rem;
 }
 
 .form-control, .form-control:focus, #inputCommentaire, #inputCommentaire:focus {
@@ -228,6 +227,7 @@ font-family: 'lato', 'arial';
 
 .boutonJaime {
     margin-right: 10px;
+    
 }
 
 .boutonValider:hover {
@@ -236,6 +236,10 @@ font-family: 'lato', 'arial';
 
 .placeBoutonValiderCentre {
 text-align: center;
+}
+
+.iconesRS {
+height: 30px;
 }
 
 @media (max-width: 1024px) {
