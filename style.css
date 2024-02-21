@@ -217,6 +217,22 @@ color : white;
 font-family: 'theNextFont', 'arial';
 }
 
+.boutonValider {
+    color: white;
+    text-decoration: none;
+    border: white 1px solid;
+    border-radius: 20%;
+    padding: 5px;
+    font-family: 'TheNextFont', 'arial';
+}
+.boutonValider:hover {
+    color: #4b4b4b;
+}
+
+.placeBoutonValiderCentre {
+text-align: center;
+}
+
 @media (max-width: 1024px) {
     .nav-container {
         display: none;
