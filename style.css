@@ -32,7 +32,7 @@ body {
     font-size: 4rem;
 }
 
-.titre2 {
+.slogan {
     color: white;
     font-family: 'dancingSCript', 'arial';
     font-size: 2rem;
@@ -76,11 +76,28 @@ nav li a:hover {
     margin: auto;
 }
 
-.titre3 {
+.textIndex {
+    color: white;
+    font-family: 'Lato light', 'arial';
+    padding-right: 100px;
+    font-size: 1rem;
+    padding-top: 130px;
+    padding-left: 70px;
+}
+
+.titreIndex {
     color: #161616;
     font-family: 'TheNextFont', 'arial';
     font-size: 2rem;
     background-color: #02A551;
+}
+
+.titreGalerie, .titreInfos  {
+    font-family: 'TheNextFont', 'arial';
+    font-size: 2.8rem;
+    background-color: #7070ff;
+    color: #161616;
+    font-size: 2rem;
 }
 
 .titreProposer {
@@ -96,58 +113,20 @@ nav li a:hover {
     background-color: #02a551; 
 }
 
-.titreProposer, .titreFaq span {
-    color : white
-}
-
-.titre3 span {
+.titreIndex span, .titreGalerie span, .titreProposer span, .titreFaq span, .titreInfos span {
     color: white;
-}
-
-.titre3GalerieText, .titreInfos  {
-    font-family: 'TheNextFont', 'arial';
-    font-size: 2.8rem;
-    background-color: #7070ff;
-    color: white;
-    font-size: 2rem;
-}
-
-.titre3galerie {
-    padding: 1rem;
 }
 
 .tableau {
     width: 100%; 
 }
 
-.titre3GalerieText, .titreInfos span {
-    color: #161616;
-}
-
-.titre3GalerieText span {
-    color: white;
-}
 
 .galerieText {
     color : white;
     font-family: 'lato light', 'arial';
     font-size: 1rem;
     padding-right: 1rem;
-}
-.titreProposer span {
-    color: #161616;
-}
-
-.text {
-    color: white;
-    font-family: 'Lato light', 'arial';
-    padding-right: 100px;
-    font-size: 1rem;
-}
-
-.text span {
-    position: absolute;
-    left: -400px
 }
 
 .form-control, .form-control:focus, #inputCommentaire, #inputCommentaire:focus {
