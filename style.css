@@ -10,13 +10,13 @@
     font-family: 'Lato';
     src: url('font/Lato.ttf') format('truetype');
 }
-body {
-    height: 100%;
+body {    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
-    padding: 0;
     font-family: 'Lato light';
     background-color: #161616;
-    min-height: 100vh;
   }
 
 .logo {
@@ -29,7 +29,7 @@ body {
 .titre {
     color: white;
     font-family: 'TheNextFont', 'arial';
-    font-size: 4rem;
+    font-size: 5rem;
 }
 
 .slogan {
@@ -39,30 +39,23 @@ body {
     text-align: end;
     margin-right: 95px;
 }
-  
+
 .nav-container {
     width: 90%;
-    margin: auto; 
 }
 
 nav ul {
     display: flex; 
     justify-content: space-around; 
     list-style-type: none;
-    padding: 0; 
-}
-
-nav li {
-    float: none; 
 }
 
 nav li a {
     display: block; 
     color: white; 
-    text-align: center; 
     padding: 14px 16px; 
     text-decoration: none; 
-    font-size: 2.5vw;
+    font-size: 2.3rem;
     font-family: 'TheNextFont', 'arial';
 }
 
@@ -152,11 +145,6 @@ nav li a:hover {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-.container-center {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-}
 .accordion-item {
     background-color: rgba(255, 255, 255, 0.062);
     border: none;
@@ -199,13 +187,6 @@ font-family: 'lato light', 'arial'!important;
     text-align: center;
 }
 
-.footerText {
-    font-family: 'Lato light', 'arial';
-    color: white;
-    text-align: center;
-    padding-top: 50px;
-}
-
 .menuBurger {
     display: none;
 }
@@ -238,9 +219,20 @@ font-family: 'lato', 'arial';
 text-align: center;
 }
 
-.iconesRS {
-height: 30px;
+footer {
+    margin-top: auto;
 }
+
+.footerText {
+    font-family: 'Lato light', 'arial';
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.iconesRS {
+    height: 30px;
+    }
 
 @media (max-width: 1024px) {
     .nav-container {
