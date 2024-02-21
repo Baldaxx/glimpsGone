@@ -79,7 +79,7 @@ nav li a:hover {
 .titre3 {
     color: #161616;
     font-family: 'TheNextFont', 'arial';
-    font-size: 4.8rem;
+    font-size: 2rem;
     background-color: #02A551;
 }
 
@@ -118,7 +118,14 @@ nav li a:hover {
 
 .tableau {
     width: 100%; 
+}
 
+.titre3GalerieText {
+    color: #161616;
+}
+
+.titre3GalerieText span {
+    color: white;
 }
 
 .galerieText {
@@ -127,12 +134,8 @@ nav li a:hover {
     font-size: 1.1rem;
     padding-right: 1rem;
 }
-.titre3GalerieText span {
+.titreProposer span {
     color: #161616;
-}
-
-.spanBlanc {
-    color: white;
 }
 
 .text {
@@ -190,6 +193,7 @@ nav li a:hover {
     color: rgb(255, 255, 255);
     font-size: 1.2rem;
     font-family: 'lato', 'arial'!important;
+    padding: 10%;
 }
 .container-fluid button {
 background-color: rgba(247, 0, 0, 0);
