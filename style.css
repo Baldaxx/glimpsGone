@@ -214,7 +214,7 @@ font-family: 'lato light', 'arial'!important;
 button, .resultat {
 background-color: #161616;
 color : white;
-font-family: 'theNextFont', 'arial';
+font-family: 'lato', 'arial';
 }
 
 .boutonValider {
@@ -225,6 +225,11 @@ font-family: 'theNextFont', 'arial';
     padding: 5px;
     font-family: 'TheNextFont', 'arial';
 }
+
+.boutonJaime {
+    margin-right: 10px;
+}
+
 .boutonValider:hover {
     color: #4b4b4b;
 }
@@ -236,6 +241,15 @@ text-align: center;
 @media (max-width: 1024px) {
     .nav-container {
         display: none;
+    }
+
+    .textIndex {
+        color: white;
+        font-family: 'Lato light', 'arial';
+        padding-right: 5px;
+        font-size: 1rem;
+        padding-top: 0px;
+        padding-left: 5px;
     }
 
     .menuBurger {
