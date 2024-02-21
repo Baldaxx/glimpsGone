@@ -206,7 +206,7 @@ font-family: 'lato light', 'arial'!important;
     font-family: 'lato light', 'arial';
 }
 
-.textInfo {
+.textInfo, .textProposerMerci {
     color: white;
     padding-left: 20px;
     padding-right: 20px;
@@ -214,6 +214,11 @@ font-family: 'lato light', 'arial'!important;
     padding-top: 30px;
     font-family: 'lato light', 'arial';
     font-size: 1rem;
+}
+
+.textProposerMerci {
+    padding-top: 100px;
+    text-align: center;
 }
 
 .footerText {
