@@ -14,7 +14,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Lato';
+    font-family: 'Lato light';
     background-color: #161616;
     min-height: 100vh;
   }
@@ -34,7 +34,7 @@ body {
 
 .titre2 {
     color: white;
-    font-family: dancingSCript, 'arial';
+    font-family: 'dancingSCript', 'arial';
     font-size: 2rem;
     text-align: end;
     margin-right: 95px;
@@ -104,7 +104,7 @@ nav li a:hover {
     color: white;
 }
 
-.titre3GalerieText {
+.titre3GalerieText, .titreInfos  {
     font-family: 'TheNextFont', 'arial';
     font-size: 2.8rem;
     background-color: #7070ff;
@@ -120,7 +120,7 @@ nav li a:hover {
     width: 100%; 
 }
 
-.titre3GalerieText {
+.titre3GalerieText, .titreInfos span {
     color: #161616;
 }
 
@@ -130,8 +130,8 @@ nav li a:hover {
 
 .galerieText {
     color : white;
-    font-family: 'lato', 'arial';
-    font-size: 1.1rem;
+    font-family: 'lato light', 'arial';
+    font-size: 1rem;
     padding-right: 1rem;
 }
 .titreProposer span {
@@ -140,9 +140,9 @@ nav li a:hover {
 
 .text {
     color: white;
-    font-family: 'Lato', 'arial';
+    font-family: 'Lato light', 'arial';
     padding-right: 100px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .text span {
@@ -155,8 +155,8 @@ nav li a:hover {
     background-color: rgba(255, 255, 255, 0.062)!important; 
     border: none !important; 
     resize: none !important; 
-    font-size: 1.2rem !important; 
-    font-family: 'Lato', 'Arial' !important; 
+    font-size: 1rem !important; 
+    font-family: 'Lato light', 'Arial' !important; 
     box-shadow: none !important; /
 }
 
@@ -182,8 +182,8 @@ nav li a:hover {
 .accordion-item {
     background-color: rgba(255, 255, 255, 0.062);
     border: none;
-    font-size: 1.2rem;
-    font-family: 'lato', 'arial'!important;
+    font-size: 1rem;
+    font-family: 'lato light', 'arial'!important;
     margin-left: 200px;
     margin-right: 200px;
     text-align: center;
@@ -191,23 +191,33 @@ nav li a:hover {
 
 .accordionText {
     color: rgb(255, 255, 255);
-    font-size: 1.2rem;
-    font-family: 'lato', 'arial'!important;
-    padding: 10%;
+    font-size: 1rem;
+    font-family: 'lato light', 'arial'!important;
+    padding: 8%;
 }
 .container-fluid button {
 background-color: rgba(247, 0, 0, 0);
 border: none;
-font-family: 'lato', 'arial'!important;
+font-family: 'lato light', 'arial'!important;
 }
 
 .collapsed {
-    font-size: 1.2rem;
-    font-family: 'lato', 'arial';
+    font-size: 1rem;
+    font-family: 'lato light', 'arial';
+}
+
+.textInfo {
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-family: 'lato light', 'arial';
+    font-size: 1rem;
 }
 
 .footerText {
-    font-family: 'Lato', 'arial';
+    font-family: 'Lato light', 'arial';
     color: white;
     text-align: center;
     padding-top: 50px;
@@ -263,4 +273,4 @@ font-family: 'theNextFont', 'arial';
         margin-left: 00px;
         margin-right: 00px;
 }
-
+}
