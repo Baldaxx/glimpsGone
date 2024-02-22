@@ -283,7 +283,31 @@ footer {
     font-family: 'lato light', 'arial';
 }
 
-
+@keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-5px, 5px);
+    }
+    40% {
+      transform: translate(5px, -5px);
+    }
+    60% {
+      transform: translate(-5px, 5px);
+    }
+    80% {
+      transform: translate(5px, -5px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  .glitch {
+    animation: glitch 0.1s;
+  }
+  
 @media (max-width: 1024px) {
     .titre {
         font-size: 3rem;
