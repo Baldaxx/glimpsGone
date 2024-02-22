@@ -37,8 +37,20 @@
                 </ul>
             </nav>
         </div>
-        <div class="menuBurger"><button><img class="burger" src="Img/menuBurger.png" alt=""></button></div>
-    </div>
+        <div class="menuBurger">
+            <button onclick="toggleMenu()">
+                <img class="burger" src="Img/menuBurger.png" alt="Menu">
+            </button>
+        </div>
+        <div class="menuBurgerDesign" id="menuBurgerDesign">
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+            <a href="/index.html">Accueil</a>
+            <a href="/galerie.html">Galerie</a>
+            <a href="/proposer.html">Proposer</a>
+            <a href="/faq.html">FAQ</a>
+            <a href="/infos.html">A propos & contact</a>
+        </div>
+
     <div class="titre3Galerie d-flex justify-content-end  text-center my-4">
         <h3 class="titreProposer m-0">Soumettez votre oeuvre<br><span>invisible</span></h3>
     </div>
@@ -53,6 +65,7 @@
         GlimpsGone. Tous droits réservés.
     </p>
 </footer>
+<script src="script.js"></script>
 </body>
 
 </html>

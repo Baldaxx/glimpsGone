@@ -2,28 +2,34 @@
     font-family: 'TheNextFont';
     src: url('font/TheNextFont.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'DancingScript';
     src: url('font/DancingScript.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'Lato';
     src: url('font/Lato.ttf') format('truetype');
 }
-body {    
+
+html {
+    height: 100%;
+}
+
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    font-family: 'Lato light';
-    background-color: #161616;
+    background-color: #1b1b1b;
 }
 
 .logo {
     width: 30%;
-    max-width: 120px; 
-    min-width: 40px; 
-    height: auto; 
+    max-width: 120px;
+    min-width: 40px;
+    height: auto;
 }
 
 .titre {
@@ -47,19 +53,18 @@ body {
     margin: auto;
 }
 
-
 nav ul {
-    display: flex; 
-    justify-content: space-around; 
+    display: flex;
+    justify-content: space-around;
     list-style-type: none;
     padding-left: 0;
 }
 
 nav li a {
-    display: block; 
-    color: white; 
-    padding: 14px 16px; 
-    text-decoration: none; 
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
     font-size: 2.3rem;
     font-family: 'TheNextFont', 'arial';
 }
@@ -88,7 +93,8 @@ nav li a:hover {
     background-color: #02A551;
 }
 
-.titreGalerie, .titreInfos  {
+.titreGalerie,
+.titreInfos {
     font-family: 'TheNextFont', 'arial';
     font-size: 2.8rem;
     background-color: #7070ff;
@@ -102,48 +108,56 @@ nav li a:hover {
     font-size: 2rem;
     background-color: #fc9701;
 }
+
 .titreFaq {
     color: #161616;
     font-family: 'TheNextFont', 'arial';
     font-size: 2rem;
-    background-color: #02a551; 
+    background-color: #02a551;
 }
 
-.titreIndex span, .titreGalerie span, .titreProposer span, .titreFaq span, .titreInfos span {
+.titreIndex span,
+.titreGalerie span,
+.titreProposer span,
+.titreFaq span,
+.titreInfos span {
     color: white;
 }
 
 .tableau {
-    width: 80%; 
+    width: 80%;
 }
 
 .galerieText {
-    color : white;
+    color: white;
     font-family: 'lato light', 'arial';
     font-size: 1rem;
 }
 
-.form-control, .form-control:focus, #inputCommentaire, #inputCommentaire:focus {
-    color: rgb(255, 255, 255) !important; 
-    background-color: rgba(255, 255, 255, 0.062)!important; 
-    border: none !important; 
-    resize: none !important; 
-    font-size: 1rem !important; 
-    font-family: 'Lato light', 'Arial' !important; 
-    box-shadow: none !important; /
+.form-control,
+.form-control:focus,
+#inputCommentaire,
+#inputCommentaire:focus {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgba(255, 255, 255, 0.062) !important;
+    border: none !important;
+    resize: none !important;
+    font-size: 1rem !important;
+    font-family: 'Lato light', 'Arial' !important;
+    box-shadow: none !important;/
 }
 
-::placeholder { 
-    color: rgb(255, 255, 255) !important; 
-    opacity: 1 !important; 
+::placeholder {
+    color: rgb(255, 255, 255) !important;
+    opacity: 1 !important;
 }
 
 .form-control:-webkit-autofill,
-.form-control:-webkit-autofill:hover, 
-.form-control:-webkit-autofill:focus, 
-.form-control:-webkit-autofill:active  {
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
     -webkit-text-fill-color: rgb(255, 255, 255) !important;
-    -webkit-box-shadow:  rgba(255, 255, 255, 0.185) inset !important;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.185) inset !important;
     transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -151,7 +165,7 @@ nav li a:hover {
     background-color: rgba(255, 255, 255, 0.062);
     border: none;
     font-size: 1.6rem;
-    font-family: 'lato light', 'arial'!important;
+    font-family: 'lato light', 'arial' !important;
     margin-left: 200px;
     margin-right: 200px;
     text-align: center;
@@ -160,13 +174,14 @@ nav li a:hover {
 .accordionText {
     color: #02A551;
     font-size: 1.3rem;
-    font-family: 'lato light', 'arial'!important;
+    font-family: 'lato light', 'arial' !important;
     padding: 2%;
 }
+
 .container-fluid button {
-background-color: rgba(247, 0, 0, 0);
-border: none;
-font-family: 'lato light', 'arial'!important;
+    background-color: rgba(247, 0, 0, 0);
+    border: none;
+    font-family: 'lato light', 'arial' !important;
 }
 
 .accordion-collapse {
@@ -174,11 +189,12 @@ font-family: 'lato light', 'arial'!important;
 }
 
 .collapsed {
-    font-size:1.6rem;
+    font-size: 1.6rem;
     font-family: 'lato light', 'arial';
 }
 
-.textInfo, .textProposerMerci {
+.textInfo,
+.textProposerMerci {
     color: white;
     padding-left: 20px;
     padding-right: 20px;
@@ -200,19 +216,16 @@ font-family: 'lato light', 'arial'!important;
     font-family: 'lato', 'arial';
 }
 
-.textFocusViolet{
+.textFocusViolet {
     color: #7070ff;
     font-family: 'lato', 'arial';
 }
 
-.menuBurger {
-    display: none;
-}
-
-button, .resultat {
-background-color: #161616;
-color : white;
-font-family: 'lato', 'arial';
+button,
+.resultat {
+    background-color: #161616;
+    color: white;
+    font-family: 'lato', 'arial';
 }
 
 .boutonValider {
@@ -226,7 +239,7 @@ font-family: 'lato', 'arial';
 
 .boutonJaime {
     margin-right: 10px;
-    
+
 }
 
 .boutonValider:hover {
@@ -234,7 +247,7 @@ font-family: 'lato', 'arial';
 }
 
 .placeBoutonValiderCentre {
-text-align: center;
+    text-align: center;
 }
 
 footer {
@@ -250,7 +263,19 @@ footer {
 
 .iconesRS {
     height: 30px;
-    }
+}
+
+.menuBurger {
+    display: none;
+}
+
+.menuBurgerDesign {
+    display: none;
+}
+
+.content {
+    flex: 1;
+}
 
 @media (max-width: 1024px) {
     .titre {
@@ -271,7 +296,6 @@ footer {
     }
 
     .menuBurger {
-        display: block;
         text-align: end;
         width: 95%;
         border-top: 1px solid #fff;
@@ -279,23 +303,65 @@ footer {
         margin: auto;
     }
 
-    .menuBurger button {
-        border: none;
+    .menuBurgerDesign,
+    .menuBurger {
+        display: block;
     }
+
     .burger {
         width: 60px;
-        height: 30px;
+        height: 60px;
     }
+
+    .menuBurgerDesign {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #1b1b1b;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .menuBurgerDesign a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 22px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .menuShown {
+        width: 250px;
+    }
+
+    .menuBurgerDesign a:hover {
+        color: #4b4b4b;
+    }
+
+    .menuBurgerDesign .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
 
     .galerieText {
         font-size: 1rem;
     }
 
     .accordionText {
-        padding: 20px;}
+        padding: 20px;
+    }
 
     .accordion-item {
         margin-left: 00px;
         margin-right: 00px;
-}
+    }
 }

@@ -37,13 +37,24 @@
                 </ul>
             </nav>
         </div>
-        <div class="menuBurger"><button><img class="burger" src="Img/menuBurger.png" alt=""></button></div>
-    </div>
+        <div class="menuBurger">
+            <button onclick="toggleMenu()">
+                <img class="burger" src="Img/menuBurger.png" alt="Menu">
+            </button>
+        </div>
+        <div class="menuBurgerDesign" id="menuBurgerDesign">
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+            <a href="/index.html">Accueil</a>
+            <a href="/galerie.html">Galerie</a>
+            <a href="/proposer.html">Proposer</a>
+            <a href="/faq.html">FAQ</a>
+            <a href="/infos.html">A propos & contact</a>
+        </div>
     <div class="titre3Galerie d-flex justify-content-end  text-center my-4">
         <h3 class="titreInfos m-0">Virginie<br><span>Baldacchino</span></h3>
     </div>
     <div><p class="textInfo">
-        Passionnée d'art, de design et de décoration d'intérieur, je m'efforce de créer des espaces qui allient beauté et fonctionnalité, capturant l'essence de l'innovation. C'est dans cet esprit que "Glimps Gone : L'Extravagante Galerie d'Art des Œuvres Invisibles" est né, reflétant ma vision personnelle et mon engagement pour l'art dans toutes ses formes. <br>Ce projet transcende les limites du perceptible, offrant un espace où l'imaginaire domine. À travers Glimps Gone, j'invite le public à explorer l'art invisible et à célébrer notre imagination collective. Rejoignons-nous dans cette aventure extraordinaire, découvrant l'art omniprésent, prêt à être perçu par ceux qui regardent au-delà du visible.</p></div>
+        Passionnée d'art, de design et de décoration d'intérieur, je m'efforce de créer des espaces qui allient beauté et fonctionnalité, capturant l'essence de l'innovation. C'est dans cet esprit que "Glimps Gone : L'Extravagante Galerie d'Art des Œuvres Invisibles" est né, reflétant ma vision personnelle et mon engagement pour l'art dans toutes ses formes. <br>Ce projet transcende les limites du perceptible, offrant un espace où <span>l'imaginaire domine.</span> À travers Glimps Gone, j'invite le public à explorer l'art invisible et à célébrer notre imagination collective. Rejoignons-nous dans cette aventure extraordinaire, découvrant l'art omniprésent, prêt à être perçu par ceux qui regardent au-delà du visible.</p></div>
     <div class="container-fluid">
         <form class="formulaireProposer">
             <div class="row flex-md-row">
@@ -63,7 +74,7 @@
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="mb-3">
-                        <textarea class="form-control" id="inputCommentaire" rows="7" placeholder="Ajoutez votre message ici" style="resize: none;"></textarea>
+                        <textarea class="form-control" id="inputCommentaire" rows="6" placeholder="Ajoutez votre message ici" style="resize: none;"></textarea>
                     </div>
                     <a class="boutonValider"  href="infoMerci.html">Envoyer</a>
                     </div>
@@ -79,6 +90,7 @@
             GlimpsGone. Tous droits réservés.
         </p>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
