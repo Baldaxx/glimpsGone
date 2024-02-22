@@ -11,6 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+
 </head>
 
 <body>
@@ -29,11 +32,11 @@
         <div class="nav-container">
             <nav>
                 <ul>
-                    <li><a href="/index.html">Accueil</a></li>
-                    <li><a href="/galerie.html">Galerie</a></li>
-                    <li><a href="/proposer.html">Proposer</a></li>
-                    <li><a href="/faq.html">FAQ</a></li>
-                    <li><a href="/infos.html">A propos & contact</a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="proposer.html">Proposer</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="infos.html">A propos & contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -44,41 +47,44 @@
         </div>
         <div class="menuBurgerDesign" id="menuBurgerDesign">
             <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
-            <a href="/index.html">Accueil</a>
-            <a href="/galerie.html">Galerie</a>
-            <a href="/proposer.html">Proposer</a>
-            <a href="/faq.html">FAQ</a>
-            <a href="/infos.html">A propos & contact</a>
+            <a href="index.html">Accueil</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="proposer.html">Proposer</a>
+            <a href="faq.html">FAQ</a>
+            <a href="infos.html">A propos & contact</a>
         </div>
     <div class="titre3Galerie d-flex justify-content-end  text-center my-4">
-        <h3 class="titreProposer m-0">Soumettez votre oeuvre<br><span>invisible</span></h3>
+        <h3 class="titreProposer m-0">Soumettez votre oeuvre <br><span>invisible</span></h3>
     </div>
+    <div><p class="textInfo">
+        Votre œuvre, un secret murmuré au monde, mérite une estrade au sein de notre galerie. C'est un pacte de confiance en la puissance de l'invisible, en la capacité de l'absent à émouvoir, à questionner, à relier. "Glimps Gone" n'est pas seulement un espace d'exposition ; c'est un voyage vers l'intérieur, une célébration de l'art qui transcende la matière. <br>
+
+Nous vous invitons à libérer votre vision. Laissez "Glimps Gone" être le réceptacle de vos rêves, de vos pensées non dites. Ensemble, explorons la richesse de l'inexploré, prouvant que l'art ne se limite pas à ce qui peut être vu ou touché. Il réside aussi dans ce qui est ressenti, imaginé, partagé. Lancez-vous, partagez votre œuvre invisible, et enrichissez notre monde de votre unique perspective.</p></div>
     <div class="container-fluid">
-        <form class="formulaireProposer">
+        <form class="formulaireProposer data-parsley-validate">
             <div class="row flex-md-row">
                 <div class="col-md-6 col-12">
                     <div class="mb-3">
-                        <input class="form-control" id="inputPrenom" placeholder="Prénom">
+                        <input class="form-control" id="inputPrenom" placeholder="Prénom" required data-parsley-trigger="change" data-parsley-minlength="3" data-parsley-maxlength="25" required data-parsley-required-message="Tu nous files ton nom de scène ?">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="inputNom" placeholder="Nom">
+                        <input type="text" class="form-control" id="inputNom" placeholder="Nom" required data-parsley-trigger="change" data-parsley-minlength="3" data-parsley-maxlength="25" required data-parsley-required-message="Oups ! Ton nom semble s'être égaré quelque part entre les lignes. Sans lui, tu risques de rester un mystère !">
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" required data-parsley-trigger="change" data-parsley-type="email" required data-parsley-required-message="Alerte ! Ton email a décidé de prendre des vacances sans prévenir. Nous sommes désormais aussi perdus qu'une chèvre dans un jeu de piste !">
                     </div>
                     <div class="mb-3">
-                        <input type="tel" class="form-control" id="inputTelephone" placeholder="Téléphone">
-                    </div>
-                    <div class="mb-3">
-                        <input type="date" class="form-control" id="inputDate" >
+                        <input type="tel" class="form-control" id="inputTelephone" placeholder="Téléphone" required data-parsley-trigger="change" data-parsley-type="tel" required data-parsley-required-message="Ce formulaire se sent aussi désemparé qu'un poisson hors de l'eau sans ton numéro de téléphone !">
+
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="mb-3">
-                        <textarea class="form-control" id="inputCommentaire" rows="14" placeholder="Ajoutez votre description ici" style="resize: none;"></textarea>
+                        <textarea class="form-control" id="inputCommentaire" rows="6" placeholder="Ajoutez votre oeuvre ici" style="resize: none;"></textarea>
                     </div>
-                    <a class="boutonValider" href="proposerMerci.html">Envoyer</a>
-                    
+                    <button type="submit" class="boutonValider">Envoyer</button>
+
+                    </div>
                 </div>
             </div>
         </form>

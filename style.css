@@ -252,6 +252,7 @@ button,
 
 footer {
     margin-top: auto;
+    bottom: 0;
 }
 
 .footerText {
@@ -276,6 +277,12 @@ footer {
 .content {
     flex: 1;
 }
+
+.parsley-errors-list {
+    color: rgb(255, 0, 0);
+    font-family: 'lato light', 'arial';
+}
+
 
 @media (max-width: 1024px) {
     .titre {

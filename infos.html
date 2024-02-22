@@ -11,6 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
 </head>
 
 <body>
@@ -29,11 +33,11 @@
         <div class="nav-container">
             <nav>
                 <ul>
-                    <li><a href="/index.html">Accueil</a></li>
-                    <li><a href="/galerie.html">Galerie</a></li>
-                    <li><a href="/proposer.html">Proposer</a></li>
-                    <li><a href="/faq.html">FAQ</a></li>
-                    <li><a href="/infos.html">A propos & contact</a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="proposer.html">Proposer</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="infos.html">A propos & contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -44,11 +48,11 @@
         </div>
         <div class="menuBurgerDesign" id="menuBurgerDesign">
             <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
-            <a href="/index.html">Accueil</a>
-            <a href="/galerie.html">Galerie</a>
-            <a href="/proposer.html">Proposer</a>
-            <a href="/faq.html">FAQ</a>
-            <a href="/infos.html">A propos & contact</a>
+            <a href="index.html">Accueil</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="proposer.html">Proposer</a>
+            <a href="faq.html">FAQ</a>
+            <a href="infos.html">A propos & contact</a>
         </div>
     <div class="titre3Galerie d-flex justify-content-end  text-center my-4">
         <h3 class="titreInfos m-0">Virginie<br><span>Baldacchino</span></h3>
@@ -56,27 +60,28 @@
     <div><p class="textInfo">
         Passionnée d'art, de design et de décoration d'intérieur, je m'efforce de créer des espaces qui allient beauté et fonctionnalité, capturant l'essence de l'innovation. C'est dans cet esprit que "Glimps Gone : L'Extravagante Galerie d'Art des Œuvres Invisibles" est né, reflétant ma vision personnelle et mon engagement pour l'art dans toutes ses formes. <br>Ce projet transcende les limites du perceptible, offrant un espace où <span>l'imaginaire domine.</span> À travers Glimps Gone, j'invite le public à explorer l'art invisible et à célébrer notre imagination collective. Rejoignons-nous dans cette aventure extraordinaire, découvrant l'art omniprésent, prêt à être perçu par ceux qui regardent au-delà du visible.</p></div>
     <div class="container-fluid">
-        <form class="formulaireProposer">
+        <form class="formulaireProposer data-parsley-validate">
             <div class="row flex-md-row">
                 <div class="col-md-6 col-12">
                     <div class="mb-3">
-                        <input class="form-control" id="inputPrenom" placeholder="Prénom">
+                        <input class="form-control" id="inputPrenom" placeholder="Prénom" required data-parsley-trigger="change" data-parsley-minlength="3" data-parsley-maxlength="25" required data-parsley-required-message="Si ton prénom était une danse, il serait le tango invisible. On ne peut pas le suivre sans le connaître !">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="inputNom" placeholder="Nom">
+                        <input type="text" class="form-control" id="inputNom" placeholder="Nom" required data-parsley-trigger="change" data-parsley-minlength="3" data-parsley-maxlength="25" required data-parsley-required-message="Sans nom, tu es un artiste anonyme comme Banksy, mais moins cool !">
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" required data-parsley-trigger="change" data-parsley-type="email" required data-parsley-required-message="Un email non renseigné, c'est comme envoyer une lettre par pigeon voyageur... en oubliant le pigeon.">
                     </div>
                     <div class="mb-3">
-                        <input type="tel" class="form-control" id="inputTelephone" placeholder="Téléphone">
+                        <input type="tel" class="form-control" id="inputTelephone" placeholder="Téléphone" required data-parsley-trigger="change" data-parsley-type="tel" required data-parsley-required-message="Ce numéro de téléphone ne nous mène nulle part. Un vrai mystère.">
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="mb-3">
                         <textarea class="form-control" id="inputCommentaire" rows="6" placeholder="Ajoutez votre message ici" style="resize: none;"></textarea>
                     </div>
-                    <a class="boutonValider"  href="infoMerci.html">Envoyer</a>
+                    <button type="submit" class="boutonValider">Envoyer</button>
+
                     </div>
                 </div>
             </div>
