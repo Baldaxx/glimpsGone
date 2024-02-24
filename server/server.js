@@ -49,6 +49,34 @@ app.post("/api/oeuvres", (req, res) => {
   });
 });
 
+app.patch("/api/oeuvres/:id", (req, res) => {
+  const { titre, description, compteur_jaime, compteur_jaime_pas } = req.body;
+  db.run(
+    `UPDATE oeuvre SET titre = ?, description = ?, compteur_jaime = ?, compteur_jaime_pas = ? WHERE id = ?`,
+    [titre, description, compteur_jaime, compteur_jaime_pas, req.params.id],
+    function (err) {
+      if (err) {
+        res.status(400).json({ error: err.message });
+        return;
+      }
+      res.json({
+        message: "Success",
+        data: req.body,
+        changes: this.changes,
+      });
+    }
+  );
+});
+
+app.delete("/api/oeuvres/:id", (req, res) => {
+  db.run(`DELETE FROM oeuvre WHERE id = ?`, req.params.id, function (err) {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.json({ message: "deleted", changes: this.changes });
+  });
+});
 
 // app.post("/api/articles", (req, res) => {
 //   const { title, content } = req.body;
@@ -59,7 +87,6 @@ app.post("/api/oeuvres", (req, res) => {
 //   const stmt = db.prepare(
 //     "INSERT INTO articles (title, content) VALUES (?, ?)"
 //   );
-
 //   stmt.run(title, content, function (err) {
 //     if (err) {
 //       res.status(500).send(err.message);
