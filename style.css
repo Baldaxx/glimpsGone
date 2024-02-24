@@ -252,7 +252,10 @@ button,
 
 footer {
     margin-top: auto;
+    position: absolute;
+    width: 100%;
     bottom: 0;
+    left: 0;
 }
 
 .footerText {
