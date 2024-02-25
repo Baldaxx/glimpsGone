@@ -49,67 +49,98 @@ app.post("/api/oeuvres", (req, res) => {
   });
 });
 
-app.patch("/api/oeuvres/:id", (req, res) => {
-  const { titre, description, compteur_jaime, compteur_jaime_pas } = req.body;
+app.post ("/api/oeuvres/:id/jaime", (req, res) => {
+  db.run(`UPDATE oeuvre SET compteur_jaime = compteur_jaime + 1 WHERE id = ?`, req.params.id, function (err) {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.json({ message: "updated", changes: this.changes });
+  });
+});
+
+app.post("/api/oeuvres/:id/jaimeplus", (req, res) => {
   db.run(
-    `UPDATE oeuvre SET titre = ?, description = ?, compteur_jaime = ?, compteur_jaime_pas = ? WHERE id = ?`,
-    [titre, description, compteur_jaime, compteur_jaime_pas, req.params.id],
+    `UPDATE oeuvre SET compteur_jaime = compteur_jaime - 1 WHERE id = ?`,
+    req.params.id,
     function (err) {
       if (err) {
         res.status(400).json({ error: err.message });
         return;
       }
-      res.json({
-        message: "Success",
-        data: req.body,
-        changes: this.changes,
-      });
+      res.json({ message: "updated", changes: this.changes });
     }
   );
 });
 
-app.delete("/api/oeuvres/:id", (req, res) => {
-  db.run(`DELETE FROM oeuvre WHERE id = ?`, req.params.id, function (err) {
+app.post("/api/oeuvres/:id/jaimepas", (req, res) => {
+  db.run(
+    `UPDATE oeuvre SET compteur_jaime_pas = compteur_jaime_pas + 1 WHERE id = ?`,
+    req.params.id,
+    function (err) {
+      if (err) {
+        res.status(400).json({ error: err.message });
+        return;
+      }
+      res.json({ message: "updated", changes: this.changes });
+    }
+  );
+});
+
+app.post("/api/oeuvres/:id/jaimepasplus", (req, res) => {
+  db.run(
+    `UPDATE oeuvre SET compteur_jaime_pas = compteur_jaime_pas - 1 WHERE id = ?`,
+    req.params.id,
+    function (err) {
+      if (err) {
+        res.status(400).json({ error: err.message });
+        return;
+      }
+      res.json({ message: "updated", changes: this.changes });
+    }
+  );
+});
+
+app.get("/api/artistes", (req, res) => {
+  db.all("SELECT * FROM artiste", [], (err, rows) => {
+    if (err) {
+      res.status(500).send(err.message);
+    }
+    res.json(rows);
+  });
+});
+
+app.post("/api/artistes", (req, res) => {
+  const sql = `INSERT INTO artiste (nom) VALUES (?)`;
+  const params = [req.body.nom];
+  db.run(sql, params, function (err) {
     if (err) {
       res.status(400).json({ error: err.message });
-      return;
+    }
+    res.json({
+      message: "Success",
+    })
+  });
+});
+
+app.delete("/api/artistes/:id", (req, res) => {
+  db.run(`DELETE FROM artiste WHERE id = ?`, req.params.id, function (err) {
+    if (err) {
+      res.status(400).json({ error: err.message });
     }
     res.json({ message: "deleted", changes: this.changes });
   });
 });
 
-// app.post("/api/articles", (req, res) => {
-//   const { title, content } = req.body;
-//   if (!title || !content) {
-//     return res.status(400).send("Le titre et le contenu sont requis.");
-//   }
-
-//   const stmt = db.prepare(
-//     "INSERT INTO articles (title, content) VALUES (?, ?)"
-//   );
-//   stmt.run(title, content, function (err) {
-//     if (err) {
-//       res.status(500).send(err.message);
-//     } else {
-//       res.status(201).send({ id: this.lastID, title, content });
-//     }
-//   });
-//   stmt.finalize();
-// });
-
-// app.delete("/api/articles/:articleId", (req, res) => {
-//   const articleId = req.params.articleId;
-
-//   db.run("DELETE FROM articles WHERE id = ?", [articleId], function (err) {
-//     if (err) {
-//       res.status(500).send(err.message);
-//     } else {
-//       res
-//         .status(200)
-//         .send(`Article avec l'ID ${articleId} supprimé avec succès.`);
-//     }
-//   });
-// });
+app.get("/api/artistes/:id", (req, res) => {
+  db.get(`SELECT * FROM artiste WHERE id = ?`, [req.params.id], (err, row) => {
+    if (err) {
+      res.status(500).send(err.message);
+    } else {
+      res.json(row);
+    }
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
