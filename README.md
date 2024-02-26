@@ -13,12 +13,14 @@ Effets d'animation sur l'interface utilisateur.
 
 Installation
 ------------
-Assurez-vous d'avoir Node.js installé sur votre machine. Ensuite, suivez ces étapes pour configurer le projet :
+Assurez-vous d'avoir Node.js installé sur votre machine. Ensuite, suivez ces étapes pour configurer le projet :  
+
 git clone 
 
 Lancez le serveur 
 -----------------
-node server/server.js
+node server/server.js  
+
 Vous pouvez accéder à l'interface utilisateur en ouvrant <http://localhost:3000> dans votre navigateur.
 
 Utilisation de l'API

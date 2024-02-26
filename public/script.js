@@ -120,3 +120,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+//Lien pour les boutons de formulaire 
+ document.getElementById("boutonValiderInfos").onclick = function () {
+   window.location.href = "infoMerci.html";
+ };
+
+  document.getElementById("boutonValiderProposer").onclick = function () {
+    window.location.href = "proposerMerci.html";
+  };
+
+  
