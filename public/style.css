@@ -229,12 +229,17 @@ button,
 }
 
 .boutonValider {
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     border: white 1px solid;
     border-radius: 20%;
     padding: 5px;
     font-family: 'TheNextFont', 'arial';
+}
+
+.textAdmin {
+    font-family: 'TheNextFont', 'arial';
+        color: white;
 }
 
 .boutonJaime {

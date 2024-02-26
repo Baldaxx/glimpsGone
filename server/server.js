@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const {db, createDb} = require("./databse");
+const { db, createDb } = require("./databse");
 
 createDb();
 
@@ -49,14 +49,18 @@ app.post("/api/oeuvres", (req, res) => {
   });
 });
 
-app.post ("/api/oeuvres/:id/jaime", (req, res) => {
-  db.run(`UPDATE oeuvre SET compteur_jaime = compteur_jaime + 1 WHERE id = ?`, req.params.id, function (err) {
-    if (err) {
-      res.status(400).json({ error: err.message });
-      return;
+app.post("/api/oeuvres/:id/jaime", (req, res) => {
+  db.run(
+    `UPDATE oeuvre SET compteur_jaime = compteur_jaime + 1 WHERE id = ?`,
+    req.params.id,
+    function (err) {
+      if (err) {
+        res.status(400).json({ error: err.message });
+        return;
+      }
+      res.json({ message: "updated", changes: this.changes });
     }
-    res.json({ message: "updated", changes: this.changes });
-  });
+  );
 });
 
 app.post("/api/oeuvres/:id/jaimeplus", (req, res) => {
@@ -119,7 +123,7 @@ app.post("/api/artistes", (req, res) => {
     }
     res.json({
       message: "Success",
-    })
+    });
   });
 });
 
@@ -145,3 +149,28 @@ app.get("/api/artistes/:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+fetch("/api/oeuvres")
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+fetch("/api/oeuvres", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    artiste_id: 1,
+    titre: "Nouvelle Œuvre",
+    description: "Description de la nouvelle œuvre",
+    date_de_creation: "2023-01-01",
+    compteur_jaime: 0,
+    compteur_jaime_pas: 0,
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+  fetch("/api/oeuvres/1/jaime", { method: "POST" })
+    .then((response) => response.json())
+    .then((data) => console.log(data));
