@@ -25,19 +25,27 @@ Utilisation de l'API
 --------------------
 L'API expose plusieurs routes pour interagir avec les données des artistes et des œuvres :
 
-GET /api/oeuvres : récupère toutes les œuvres.
-POST /api/oeuvres : ajoute une nouvelle œuvre.
-POST /api/oeuvres/:id/jaime : incrémente le compteur de "j'aime" pour une œuvre.
-POST /api/oeuvres/:id/jaimeplus : décrémente le compteur de "j'aime" pour une œuvre.
-POST /api/oeuvres/:id/jaimepas : incrémente le compteur de "j'aime pas" pour une œuvre.
-POST /api/oeuvres/:id/jaimepasplus : décrémente le compteur de "j'aime pas" pour une œuvre.
+GET /api/oeuvres : récupère toutes les œuvres.  
+
+POST /api/oeuvres : ajoute une nouvelle œuvre.  
+
+POST /api/oeuvres/:id/jaime : incrémente le compteur de "j'aime" pour une œuvre.  
+
+POST /api/oeuvres/:id/jaimeplus : décrémente le compteur de "j'aime" pour une œuvre.  
+
+POST /api/oeuvres/:id/jaimepas : incrémente le compteur de "j'aime pas" pour une œuvre.  
+
+POST /api/oeuvres/:id/jaimepasplus : décrémente le compteur de "j'aime pas" pour une œuvre.  
+
 DELETE /api/artistes/:id : supprime un artiste et ses œuvres associées.
-Contribuer
-Nous accueillons les contributions ! Si vous avez des suggestions d'amélioration ou des corrections, n'hésitez pas à :
+Contribuer  
+
+Nous accueillons les contributions ! Si vous avez des suggestions d'amélioration ou des corrections, n'hésitez pas à virginie.bm13@icloud.com
 
 Liens
 =====
 
 Pour comprendre les commit:
-vers le Trello => <https://trello.com/b/Lw47hmlG/ecf>
+vers le Trello => <https://trello.com/b/Lw47hmlG/ecf>  
+
 vers le figma => <https://www.figma.com/file/F07Ghcazd2HIpGqRicBDML/Untitled?type=design&node-id=114-2&mode=design&t=piQYKvGwzffy1Abz-0>
