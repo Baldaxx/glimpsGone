@@ -105,28 +105,6 @@ app.post("/api/oeuvres/:id/jaimepasplus", (req, res) => {
   );
 });
 
-app.get("/api/artistes", (req, res) => {
-  db.all("SELECT * FROM artiste", [], (err, rows) => {
-    if (err) {
-      res.status(500).send(err.message);
-    }
-    res.json(rows);
-  });
-});
-
-app.post("/api/artistes", (req, res) => {
-  const sql = `INSERT INTO artiste (nom) VALUES (?)`;
-  const params = [req.body.nom];
-  db.run(sql, params, function (err) {
-    if (err) {
-      res.status(400).json({ error: err.message });
-    }
-    res.json({
-      message: "Success",
-    });
-  });
-});
-
 app.delete("/api/artistes/:id", (req, res) => {
   db.run(`DELETE FROM artiste WHERE id = ?`, req.params.id, function (err) {
     if (err) {
@@ -136,23 +114,15 @@ app.delete("/api/artistes/:id", (req, res) => {
   });
 });
 
-app.get("/api/artistes/:id", (req, res) => {
-  db.get(`SELECT * FROM artiste WHERE id = ?`, [req.params.id], (err, row) => {
-    if (err) {
-      res.status(500).send(err.message);
-    } else {
-      res.json(row);
-    }
-  });
-});
-
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-fetch("/api/oeuvres")
+fetch("http://localhost:3000/api/oeuvres")
   .then((response) => response.json())
-  .then((data) => console.log(data));
+  .then((data) => console.log(data))
+  .catch((error) => console.error("Error:", error));
+
 
 fetch("/api/oeuvres", {
   method: "POST",
@@ -174,3 +144,20 @@ fetch("/api/oeuvres", {
   fetch("/api/oeuvres/1/jaime", { method: "POST" })
     .then((response) => response.json())
     .then((data) => console.log(data));
+
+    fetch("/api/oeuvres/1/jaimeplus", { method: "POST" })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+
+      fetch("/api/oeuvres/1/jaimepas", { method: "POST" })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+
+        fetch("/api/oeuvres/1/jaimepasplus", { method: "POST" })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+
+          fetch("/api/artistes/1", { method: "DELETE" })
+            .then((response) => response.json())
+            .then((data) => console.log(data));
+
