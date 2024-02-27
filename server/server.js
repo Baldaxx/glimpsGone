@@ -92,6 +92,32 @@ app.delete("/api/artistes/:id", (req, res) => {
   });
 });
 
+// Route pour gérer la soumission du formulaire "Ajouter"
+app.post("/submit-form", (req, res) => {
+  const { prenom, nom, email, telephone, commentaire } = req.body;
+
+  const query = `INSERT INTO SoumissionsOeuvre (prenom, nom, email, telephone, commentaire) VALUES (?, ?, ?, ?, ?)`;
+  db.run(query, [prenom, nom, email, telephone, commentaire], function (err) {
+    if (err) {
+      console.error(err.message);
+      res.json({
+        message: "Erreur lors de l'insertion dans la base de données",
+      });
+      return;
+    }
+    res.json({ message: "Votre œuvre a été soumise avec succès !" });
+  });
+});
+
+app.get("/oeuvres", (req, res) => {
+  db.all("SELECT * FROM SoumissionsOeuvre", [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows); // Envoie les données au client en JSON
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

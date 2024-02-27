@@ -15,6 +15,7 @@ function createDb() {
   db.serialize(function () {
     db.run(`DROP TABLE IF EXISTS artiste`);
     db.run(`DROP TABLE IF EXISTS oeuvre`);
+    db.run(`DROP TABLE IF EXISTS SoumissionsOeuvre`);
 
     db.run(`
       CREATE TABLE artiste (
@@ -35,6 +36,18 @@ function createDb() {
         compteur_jaime_pas INTEGER,
         FOREIGN KEY(artiste_id) REFERENCES artiste(id) ON DELETE CASCADE
       )`);
+
+ db.run(`
+      CREATE TABLE SoumissionsOeuvre (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        prenom TEXT NOT NULL,
+        nom TEXT NOT NULL,
+        email TEXT NOT NULL,
+        telephone TEXT,
+        commentaire TEXT,
+        dateSoumission DATETIME DEFAULT (datetime('now','localtime'))
+      )`);
+
   });
   db.serialize(function () {
     db.run(

@@ -85,4 +85,21 @@ function initialisation() {
       }
     });
 }
+
+window.onload = function () {
+  fetch("/oeuvres")
+    .then((response) => response.json())
+    .then((data) => {
+      const galerie = document.getElementById("galerie");
+      data.forEach((oeuvre) => {
+        const element = document.createElement("div");
+        element.textContent = `${oeuvre.prenom} ${oeuvre.nom} - ${oeuvre.commentaire}`;
+        galerie.appendChild(element);
+      });
+    })
+    .catch((error) =>
+      console.error("Erreur lors de la récupération des œuvres:", error)
+    );
+};
+
 document.addEventListener("DOMContentLoaded", initialisation);
