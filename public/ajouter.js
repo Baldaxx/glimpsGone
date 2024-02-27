@@ -2,39 +2,45 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("formulaireProposerid")
     .addEventListener("submit", function (e) {
-      e.preventDefault(); 
-      var form = $(this); 
+      e.preventDefault();
+      var form = $(this);
       if (form.parsley().isValid()) {
-        submitForm(); 
+        submitForm();
       }
     });
 });
 
 // Fonction pour soumettre le formulaire
 function submitForm() {
-  const formData = new FormData(
-    document.getElementById("formulaireProposerid")
-  );
-  const formObject = {};
-  formData.forEach((value, key) => {
-    formObject[key] = value;
-  });
+    const inputPrenom = document.getElementById("inputPrenom");
+    const inputNom = document.getElementById("inputNom");
+    const inputEmail = document.getElementById("inputEmail");
+    const inputTelephone = document.getElementById("inputTelephone");
+    const inputCommentaire = document.getElementById("inputCommentaire");
 
-  fetch("/submit-form", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formObject),
-  })
-    .then((response) => response.json()) // Supposons que le serveur renvoie du JSON
-    .then((data) => {
-      alert(data.message); // Message de succès
-      window.location.href = "/galerie"; // Redirection vers la galerie
+    const formObject = {
+        prenom: inputPrenom.value,
+        nom: inputNom.value,
+        email: inputEmail.value,
+        telephone: inputTelephone.value,
+        commentaire: inputCommentaire.value,
+    };
+
+    fetch("/submit-form", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formObject),
     })
-    .catch((error) => {
-      console.error("Erreur lors de la soumission du formulaire:", error);
-      alert("Erreur lors de la soumission du formulaire. Veuillez réessayer.");
-    });
+        .then((response) => response.json()) // Supposons que le serveur renvoie du JSON
+        .then((data) => {
+            alert(data.message); // Message de succès
+            window.location.href = "/galerie.html"; // Redirection vers la galerie
+        })
+        .catch((error) => {
+            console.error("Erreur lors de la soumission du formulaire:", error);
+            alert("Erreur lors de la soumission du formulaire. Veuillez réessayer.");
+        });
 }
 

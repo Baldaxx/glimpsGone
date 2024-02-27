@@ -69,7 +69,7 @@
                 partagez votre œuvre invisible, et enrichissez notre monde de votre unique perspective.</p>
         </div>
         <div class="container-fluid">
-            <form id="formulaireProposerid" class="formulaireProposer" action="/submit-form" method="post" data-parsley-validate>
+            <form id="formulaireProposerid" class="formulaireProposer" data-parsley-validate>
                 <div class="row flex-md-row">
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="inputTelephone" placeholder="Téléphone" required
-                                data-parsley-trigger="change" data-parsley-pattern="^\\+?\\d{10,13}$" required
+                                data-parsley-trigger="change" pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$" required
                                 data-parsley-required-message="Ce formulaire se sent aussi désemparé qu'un poisson hors de l'eau sans ton numéro de téléphone !">
 
                         </div>
