@@ -36,7 +36,7 @@
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="galerie.html">Galerie</a></li>
-                    <li><a href="proposer.html">Proposer</a></li>
+                    <li><a href="ajouter.html">Ajouter</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="infos.html">A propos & contact</a></li>
                 </ul>
@@ -52,7 +52,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
             <a href="index.html">Accueil</a>
             <a href="galerie.html">Galerie</a>
-            <a href="proposer.html">Proposer</a>
+            <a href="ajouter.html">Ajouter</a>
             <a href="faq.html">FAQ</a>
             <a href="infos.html">A propos & contact</a>
         </div>
@@ -77,13 +77,24 @@
     <div class="container-fluid" id="compteurJJ" style="display:none">
         <div class="row">
             <div class="col-2">
-                <button><img class="boutonJaime" src="Img/iconeJaime.png" alt="Bouton j'aime, pour aimer l'article"></button><span id="jaimeOeuvre" class="resultat"></span></div>
-
-            <div class="col-2">
-                <button><img class="boutonJaime" src="Img/iconeJaimePas.png" alt="Bouton je n'aime pas"></button><span id="jaimePasOeuvre" class="resultat"></span></div>
-            <div class="col-7">                 
-                <a class="boutonValider" href="#">Suivant</a></div>
+                 <button><img class="boutonJaime" src="Img/iconeJaime.png"
+                        alt="Bouton j'aime, pour aimer l'article"></button><span id="jaimeOeuvre" class="resultat"></span>
+            </div>
+            <button id="btn_jaime"><img class="boutonJaime" src="Img/iconeJaime.png"
+                    alt="Bouton j'aime, pour aimer l'article"></button><span id="jaimeOeuvre" class="resultat"></span>
         </div>
+    
+        <div class="col-2">
+             <button><img class="boutonJaime" src="Img/iconeJaimePas.png" alt="Bouton je n'aime pas"></button><span
+                id="jaimePasOeuvre" class="resultat"></span></div>
+         <div class="col-7">
+             <a class="boutonValider" href="#">Suivant</a></div>
+         <button id="btn_jaime_pas"><img class="boutonJaime" src="Img/iconeJaimePas.png"
+                alt="Bouton je n'aime pas"></button><span id="jaimePasOeuvre" class="resultat"></span>
+    </div>
+     <div class="col-7">
+        <a id="btn_suivant" class="boutonValider" href="#">Suivant</a></div>
+    </div>
     </div><br>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0"

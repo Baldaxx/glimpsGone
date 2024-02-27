@@ -1,6 +1,16 @@
 {
-  "dependencies": {
-    "express": "^4.18.2",
-    "sqlite3": "^5.1.7"
+  "nom" : " glimpsgone_server " ,
+  "version" : " 1.0.0 " ,
+  "description" : " " ,
+  "principal" : " serveur.js " ,
+  "scripts" : {
+    "test" : " echo \" Erreur : aucun test spécifié \" && exit 1 "
+  },
+  "mots clés" : [],
+  "auteur" : " virginie baldacchino " ,
+  "licence" : " ISC " ,
+  "dépendances" : {
+    "express" : " ^4.18.2 " ,
+    "sqlite3" : " ^5.1.7 "
   }
 }

@@ -11,41 +11,36 @@ const db = new sqlite3.Database(
   }
 );
 
-function createDb () {
+function createDb() {
   db.serialize(function () {
     db.run(`DROP TABLE IF EXISTS artiste`);
     db.run(`DROP TABLE IF EXISTS oeuvre`);
-    db.run(`
-      CREATE TABLE oeuvre (
-        id INTEGER PRIMARY KEY AUTOINCREMENT, 
-        artiste_id INTEGER, 
-        titre TEXT, 
-        description TEXT, 
-        date_de_creation INTEGER,
-        compteur_jaime INTEGER,
-        compteur_jaime_pas INTEGER,
-        CONSTRAINT fk_artiste
-          FOREIGN KEY(artiste_id) 
-          REFERENCES artiste(id)
-          ON DELETE CASCADE
-      )`);
 
     db.run(`
       CREATE TABLE artiste (
-        id INTEGER PRIMARY KEY AUTOINCREMENT, 
-        nom TEXT, 
-        email TEXT, 
-        telephone TEXT 
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nom TEXT,
+        email TEXT,
+        telephone TEXT
+      )`);
+
+    db.run(`
+      CREATE TABLE oeuvre (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        artiste_id INTEGER,
+        titre TEXT,
+        description TEXT,
+        date_de_creation INTEGER,
+        compteur_jaime INTEGER,
+        compteur_jaime_pas INTEGER,
+        FOREIGN KEY(artiste_id) REFERENCES artiste(id) ON DELETE CASCADE
       )`);
   });
-
-db.serialize(function () {
-  db.run(`INSERT INTO artiste (id, nom, email, telephone) VALUES (?, ?, ?, ?)`, [
-    1,
-    "Jerome Floyd",
-    "VZlT3@example.com",
-    "0645125596"
-  ])
+  db.serialize(function () {
+    db.run(
+      `INSERT INTO artiste (id, nom, email, telephone) VALUES (?, ?, ?, ?)`,
+      [1, "Jerome Floyd", "VZlT3@example.com", "0645125596"]
+    );
     db.run(
       `INSERT INTO oeuvre (artiste_id, titre, description, date_de_creation, compteur_jaime, compteur_jaime_pas) VALUES (?, ?, ?, ?, ?, ?)`,
       [
@@ -60,12 +55,13 @@ db.serialize(function () {
         Car au-delà de la simple représentation artistique, "Le Rêveur des Prairies" éveille en chacun de vous cette soif d'aventure et cette fascination pour l'inconnu qui font battre le cœur de l'humanité depuis la nuit des temps.`,
         1708775455,
         0,
-        0
+        0,
       ]
     );
-});
+  });
 }
 
 module.exports = {
-  db, createDb
+  db,
+  createDb,
 };
