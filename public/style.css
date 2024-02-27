@@ -72,6 +72,9 @@ nav li a {
 nav li a:hover {
     color: #4b4b4b;
 }
+nav li a.active {
+    color: #4b4b4b;
+}
 
 .textIndex {
     color: white;

@@ -26,6 +26,17 @@ function randomGlitchEffect() {
 }
 document.addEventListener("DOMContentLoaded", randomGlitchEffect);
 
+//Focus sur la barre de navigation
+document.addEventListener("DOMContentLoaded", function () {
+  // Obtention de l'URL actuelle
+  const currentLocation = location.href;
+  const navLinks = document.querySelectorAll("nav ul li a");
+  navLinks.forEach((link) => {
+    if (link.href === currentLocation) {
+      link.classList.add("active");
+    }
+  });
+});
 
 
   
