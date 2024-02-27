@@ -49,6 +49,18 @@ function initialisation() {
       });
   });
 
+  // Configuration bouton j'aime pas
+  document.getElementById("btn_jaime_pas").addEventListener("click", function () {
+    fetch(
+      `/api/oeuvres/${toutesLesOeuvres[identifiantOeuvreCourante].id}/jaimePas`,
+      { method: "POST" }
+    )
+      .then((response) => response.json())
+      .then(() => {
+        afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]);
+      });
+  });
+
   // Configuration bouton suivant
   document.getElementById("btn_suivant").addEventListener("click", function () {
     if (identifiantOeuvreCourante + 1 < toutesLesOeuvres.length) {
