@@ -50,16 +50,18 @@ function initialisation() {
   });
 
   // Configuration bouton j'aime pas
-  document.getElementById("btn_jaime_pas").addEventListener("click", function () {
-    fetch(
-      `/api/oeuvres/${toutesLesOeuvres[identifiantOeuvreCourante].id}/jaimePas`,
-      { method: "POST" }
-    )
-      .then((response) => response.json())
-      .then(() => {
-        afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]);
-      });
-  });
+  document
+    .getElementById("btn_jaime_pas")
+    .addEventListener("click", function () {
+      fetch(
+        `/api/oeuvres/${toutesLesOeuvres[identifiantOeuvreCourante].id}/jaimePas`,
+        { method: "POST" }
+      )
+        .then((response) => response.json())
+        .then(() => {
+          afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]);
+        });
+    });
 
   // Configuration bouton suivant
   document.getElementById("btn_suivant").addEventListener("click", function () {
@@ -70,6 +72,17 @@ function initialisation() {
       alert("Il n'y a plus d'oeuvres à voir !");
     }
   });
-}
 
+  // Configuration bouton précédent
+  document
+    .getElementById("btn_precedent")
+    .addEventListener("click", function () {
+      if (identifiantOeuvreCourante - 1 >= 0) {
+        identifiantOeuvreCourante--; 
+        afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]);
+      } else {
+        alert("Il n'y a plus d'oeuvres à voir !");
+      }
+    });
+}
 document.addEventListener("DOMContentLoaded", initialisation);
