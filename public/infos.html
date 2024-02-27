@@ -12,10 +12,8 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
-<script src="https://smtpjs.com/v3/smtp.js"></script>
-<script src="https://smtpjs.com/v3/smtp.js">
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 
 </head>
 
@@ -75,7 +73,7 @@
                         <input type="email" class="form-control" id="inputEmail" placeholder="Email" required data-parsley-trigger="change" data-parsley-type="email" required data-parsley-required-message="Un email non renseigné, c'est comme envoyer une lettre par pigeon voyageur... en oubliant le pigeon.">
                     </div>
                     <div class="mb-3">
-                        <input type="tel" class="form-control" id="inputTelephone" placeholder="Téléphone" required data-parsley-trigger="change" data-parsley-type="tel" required data-parsley-required-message="Ce numéro de téléphone ne nous mène nulle part. Un vrai mystère.">
+                        <input type="tel" class="form-control" id="inputTelephone" placeholder="Téléphone" required data-parsley-trigger="change" required data-parsley-required-message="Ce numéro de téléphone ne nous mène nulle part. Un vrai mystère." pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
@@ -98,6 +96,8 @@
         </p>
     </footer>
     <script src="script.js"></script>
+    <script src="formulaire.js"></script>
+    <script src="info.js"></script>
 </body>
 
 </html>

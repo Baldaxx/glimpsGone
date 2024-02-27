@@ -36,4 +36,48 @@ document.addEventListener("DOMContentLoaded", () => {
     compteur_jaime: 0,
     compteur_jaime_pas: 0,
   });
+
+fetch("http://localhost:3000/api/oeuvres")
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error("Error:", error));
+
+
+fetch("/api/oeuvres", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    artiste_id: 1,
+    titre: "Nouvelle Œuvre",
+    description: "Description de la nouvelle œuvre",
+    date_de_creation: "2023-01-01",
+    compteur_jaime: 0,
+    compteur_jaime_pas: 0,
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+  fetch("/api/oeuvres/1/jaime", { method: "POST" })
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+
+    fetch("/api/oeuvres/1/jaimeplus", { method: "POST" })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+
+      fetch("/api/oeuvres/1/jaimepas", { method: "POST" })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+
+        fetch("/api/oeuvres/1/jaimepasplus", { method: "POST" })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+
+          fetch("/api/artistes/1", { method: "DELETE" })
+            .then((response) => response.json())
+            .then((data) => console.log(data));
+
 });
