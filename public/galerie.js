@@ -23,7 +23,7 @@ function afficheOeuvre(oeuvre) {
 }
 
 let toutesLesOeuvres = [];
-let identifiantOeuvreCourante = 0; // Indice de l'oeuvre courante
+let identifiantOeuvreCourante = 0; // L'oeuvre en cours
 
 function recupererEtAfficherOeuvre() {
   fetch("/api/oeuvres")
@@ -75,7 +75,7 @@ function initialisation() {
             identifiantOeuvreCourante++;
             afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]);
         } else {
-            alert("Il n'y a plus d'oeuvres à voir !");
+        window.location.href = "galerieFin.html";
         }
     });
 

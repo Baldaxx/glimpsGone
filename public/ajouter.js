@@ -33,10 +33,10 @@ function submitForm() {
         },
         body: JSON.stringify(formObject),
     })
-        .then((response) => response.json()) // Supposons que le serveur renvoie du JSON
+        .then((response) => response.json()) 
         .then((data) => {
-            alert(data.message); // Message de succès
-            window.location.href = "/galerie.html"; // Redirection vers la galerie
+            // alert(data.message); // Message de succès
+            window.location.href = "ajouterMerci.html"; 
         })
         .catch((error) => {
             console.error("Erreur lors de la soumission du formulaire:", error);

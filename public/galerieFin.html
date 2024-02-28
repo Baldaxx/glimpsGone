@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glimps Gone</title>
+    <meta name="description"
+        content="Découvrez l'unique galerie d'art d'œuvres invisibles, un voyage sensoriel au-delà du visuel. Explorez une collection inédite où imagination, sensation et perception défient les frontières de l'art traditionnel. Une expérience artistique inoubliable qui invite à la réflexion et à l'éveil des sens.">
+    <link rel="icon" href="Img/LogoBlanc.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row align-items-end">
+            <div class="col-3 col-sm-4 col-md-2"><img src="Img/LogoBlanc.png" class="logo"
+                    alt="Logo de Glimps Gone, l'extravagante galerie d'art d'oeuvre invisible"></div>
+            <div class="col-9 col-sm-8 col-md-10">
+                <h1 class="titre">GLIMPS GONE</h1>
+            </div>
+        </div>
+        <div>
+            <h2 class="slogan">L’extravagante Galerie d'Art des Œuvres Invisibles !</h2>
+        </div>
+
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="ajouter.html">Ajouter</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="infos.html">A propos & contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="menuBurger">
+            <button onclick="toggleMenu()">
+                <img class="burger" src="Img/menuBurger.png" alt="Menu">
+            </button>
+        </div>
+        <div class="menuBurgerDesign" id="menuBurgerDesign">
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+            <a href="index.html">Accueil</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="ajouter.html">Ajouter</a>
+            <a href="faq.html">FAQ</a>
+            <a href="infos.html">A propos & contact</a>
+        </div>
+        <div class="titre3Galerie d-flex justify-content-end  text-center my-4">
+            <h3 class="titreInfos m-0">Le grand<br><span>vide</span></h3>
+        </div>
+        <div>
+            <p class="textProposerMerci">Fin de l'expo, ou début de la réflexion ?<br> Comme un final
+            d'art invisible, un clin d'œil malicieux à l'absurde. Merci d'avoir partagé ce moment de "moins c'est plus" avec nous.
+            <br><br>L'Extravagante Galerie vous salue !
+            </p>
+        </div>
+        <div class="placeBoutonValiderCentre"><a class="boutonValider" href="galerie.html">Galerie</a>
+        </div>
+        <footer>
+            <p class="footerText"><a target="_blank" href="https://github.com/baldaxx"><img class="iconesRS"
+                        src="Img/github.png" alt="icone menant à Github"></a>
+                <a target="_blank" href="https://www.linkedin.com/in/baldax/"><img class="iconesRS"
+                        src="Img/linkedin.png" alt="icone menant à Linkedin"></a>
+                <a target="_blank" href="https://www.instagram.com/baldax_avec_un_x/"><img class="iconesRS"
+                        src="Img/instagram.png" alt="icone menant à Instagram"></a> <br> © 2024
+                GlimpsGone. Tous droits réservés.
+            </p>
+        </footer>
+        <script src="script.js"></script>
+</body>
+
+</html>
