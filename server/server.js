@@ -94,10 +94,10 @@ app.delete("/api/artistes/:id", (req, res) => {
 
 // Route pour gérer la soumission du formulaire "Ajouter"
 app.post("/submit-form", (req, res) => {
-    const { prenom, nom, email, telephone, commentaire } = req.body;
+    const { artiste, titre, email, telephone, commentaire } = req.body;
 
     const querySearchArtiste = "SELECT * FROM artiste WHERE nom = ? AND email = ? AND telephone = ?";
-    db.run(querySearchArtiste, [`${prenom} ${nom}`, email, telephone], (err, rows) => {
+    db.run(querySearchArtiste, [artiste, email, telephone], (err, rows) => {
         if(err) {
             console.error(err.message);
             res.json({
@@ -109,10 +109,10 @@ app.post("/submit-form", (req, res) => {
         let artisteId;
         if(rows !== undefined) {
             artisteId = rows[0].id
-            insertOeuvre(res, artisteId, prenom, nom, commentaire);
+            insertOeuvre(res, artisteId, artiste, titre, commentaire);
         } else {
             const queryAddArtiste = "INSERT INTO artiste (nom, email, telephone) VALUES (?, ?, ?)";
-            db.run(queryAddArtiste, [`${prenom} ${nom}`, email, telephone], function(err) {
+            db.run(queryAddArtiste, [artiste, email, telephone], function(err) {
                 if(err) {
                     console.error(err.message);
                     res.json({
@@ -121,27 +121,27 @@ app.post("/submit-form", (req, res) => {
                     return;
                 }
                 artisteId = this.lastID;
-                insertOeuvre(res, artisteId, prenom, nom, commentaire);
+                insertOeuvre(res, artisteId, titre, commentaire);
             });
         }
     });
 });
 
-function insertOeuvre(res, artisteId, prenom, nom, commentaire) {
+function insertOeuvre(reponseHtpp, artisteId, titre, commentaire) {
     const dateDeCreation = Math.floor(Date.now() / 1000);
     const queryAddOeuvre = `INSERT INTO oeuvre
         (artiste_id, titre, description, date_de_creation, compteur_jaime, compteur_jaime_pas)
         VALUES (?, ?, ?, ?, ?, ?)`;
 
-    db.run(queryAddOeuvre, [artisteId, `Oeuvre de ${prenom} ${nom}`, commentaire, dateDeCreation, 0, 0], (err) => {
+    db.run(queryAddOeuvre, [artisteId, titre, commentaire, dateDeCreation, 0, 0], (err) => {
         if(err) {
             console.error(err.message);
-            res.json({
+            reponseHtpp.json({
                 message: "Erreur lors de l'insertion dans la base de données",
             });
             return;
         }
-        res.json({ message: "Votre œuvre a été soumise avec succès !" });
+        reponseHtpp.json({ message: "Votre œuvre a été soumise avec succès !" });
     });
 }
 
