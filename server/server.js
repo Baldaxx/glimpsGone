@@ -93,7 +93,7 @@ app.delete("/api/artistes/:id", (req, res) => {
 });
 
 // Route pour gérer la soumission du formulaire "Ajouter"
-app.post("/submit-form", (req, res) => {
+app.post("/api/submit-form", (req, res) => {
     const { prenom, nom, email, telephone, commentaire } = req.body;
 
     const querySearchArtiste = "SELECT * FROM artiste WHERE nom = ? AND email = ? AND telephone = ?";
@@ -150,7 +150,7 @@ app.get("/oeuvres", (req, res) => {
     if (err) {
       throw err;
     }
-    res.json(rows); // Envoie les données au client en JSON
+    res.json(rows);
   });
 });
 

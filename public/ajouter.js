@@ -35,7 +35,7 @@ function submitForm() {
     })
         .then((response) => response.json()) 
         .then((data) => {
-            // alert(data.message); // Message de succès
+
             window.location.href = "ajouterMerci.html"; 
         })
         .catch((error) => {
