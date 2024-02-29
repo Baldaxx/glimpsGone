@@ -1,159 +1,96 @@
 const express = require("express");
+const { createDb } = require("./databse"); 
+const {
+  recupererOeuvres,
+  ajouterOeuvre,
+  augmenterJaimes,
+  augmenterJaimesPas,
+  trouverArtiste,
+  creerArtiste,
+  soumettreOeuvre,
+} = require("./repository");
+
 const app = express();
 const port = 3000;
-const { db, createDb } = require("./databse"); 
 
-createDb();
+createDb(); // Initialise la base de données au démarrage du serveur
 
-app.use(express.static("public"));
-app.use(express.json());
+app.use(express.static("public")); // Sert les fichiers statiques du dossier 'public'
+app.use(express.json()); // Permet au serveur de traiter le JSON dans le corps des requêtes
 
+// Fonction pour simplifier la gestion des promesses dans les routes
+const gestionAsync = (fn) => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
 
-app.get("/api/oeuvres", (req, res) => {
-  db.all(
-    "SELECT oeuvre.*, artiste.nom AS artiste FROM oeuvre LEFT JOIN artiste ON oeuvre.artiste_id = artiste.id",
-    [],
-    (err, rows) => {
-      if (err) {
-        res.status(500).send(err.message);
-      } else {
-        res.json(rows);
-      }
-    }
-  );
+// Route pour récupérer toutes les œuvres d'art
+app.get(
+  "/api/oeuvres",
+  gestionAsync(async (req, res) => {
+    const oeuvres = await recupererOeuvres();
+    res.json(oeuvres);
+  })
+);
+
+// Route pour ajouter une nouvelle œuvre
+app.post(
+  "/api/oeuvres",
+  gestionAsync(async (req, res) => {
+    const id = await ajouterOeuvre(req.body);
+    res.json({ message: "Succès", donnee: req.body, id });
+  })
+);
+
+// Route pour augmenter le compteur de "j'aime" d'une œuvre spécifique
+app.post(
+  "/api/oeuvres/:id/jaime",
+  gestionAsync(async (req, res) => {
+    await augmenterJaimes(req.params.id);
+    res.json({ message: "J'aime mis à jour" });
+  })
+);
+
+// Route similaire pour les "j'aime pas"
+app.post(
+  "/api/oeuvres/:id/jaimepas",
+  gestionAsync(async (req, res) => {
+    await augmenterJaimesPas(req.params.id);
+    res.json({ message: "J'aime pas mis à jour" });
+  })
+);
+
+// Recherche d'artiste par nom, email, et téléphone
+app.get(
+  "/api/artistes/rechercher",
+  gestionAsync(async (req, res) => {
+    const { nom, email, telephone } = req.query;
+    const artistes = await trouverArtiste({ nom, email, telephone });
+    res.json(artistes);
+  })
+);
+
+// Création d'un nouvel artiste
+app.post(
+  "/api/artistes",
+  gestionAsync(async (req, res) => {
+    const { nom, email, telephone } = req.body;
+    const id = await creerArtiste({ nom, email, telephone });
+    res.json({ message: "Artiste créé avec succès", id });
+  })
+);
+
+// Soumission d'une nouvelle œuvre par un artiste
+app.post(
+  "/api/oeuvres/soumettre",
+  gestionAsync(async (req, res) => {
+    const id = await soumettreOeuvre(req.body);
+    res.json({ message: "Œuvre soumise avec succès", id });
+  })
+);
+
+// Gestionnaire d'erreurs centralisé pour capturer toutes les erreurs non gérées
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ erreur: "Une erreur est survenue" });
 });
 
-app.post("/api/oeuvres", (req, res) => {
-  const {
-    artiste_id,
-    titre,
-    description,
-    date_de_creation,
-    compteur_jaime,
-    compteur_jaime_pas,
-  } = req.body;
-  const sql = `INSERT INTO oeuvre (artiste_id, titre, description, date_de_creation, compteur_jaime, compteur_jaime_pas) VALUES (?, ?, ?, ?, ?, ?)`;
-  const params = [
-    artiste_id,
-    titre,
-    description,
-    date_de_creation,
-    compteur_jaime,
-    compteur_jaime_pas,
-  ];
-  db.run(sql, params, function (err) {
-    if (err) {
-      res.status(400).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: "Success",
-      data: req.body,
-      id: this.lastID,
-    });
-  });
-});
-
-app.post("/api/oeuvres/:id/jaime", (req, res) => {
-  db.run(
-    `UPDATE oeuvre SET compteur_jaime = compteur_jaime + 1 WHERE id = ?`,
-    req.params.id,
-    function (err) {
-      if (err) {
-        res.status(400).json({ error: err.message });
-        return;
-      }
-      res.json({ message: "updated", changes: this.changes });
-    }
-  );
-});
-
-app.post("/api/oeuvres/:id/jaimepas", (req, res) => {
-  db.run(
-    `UPDATE oeuvre SET compteur_jaime_pas = compteur_jaime_pas + 1 WHERE id = ?`,
-    req.params.id,
-    function (err) {
-      if (err) {
-        res.status(400).json({ error: err.message });
-        return;
-      }
-      res.json({ message: "updated", changes: this.changes });
-    }
-  );
-});
-
-app.delete("/api/artistes/:id", (req, res) => {
-  db.run(`DELETE FROM artiste WHERE id = ?`, req.params.id, function (err) {
-    if (err) {
-      res.status(400).json({ error: err.message });
-      return;
-    }
-    res.json({ message: "deleted", changes: this.changes });
-  });
-});
-
-// Route pour gérer la soumission du formulaire "Ajouter"
-app.post("/submit-form", (req, res) => {
-    const { artiste, titre, email, telephone, commentaire } = req.body;
-
-    const querySearchArtiste = "SELECT * FROM artiste WHERE nom = ? AND email = ? AND telephone = ?";
-    db.run(querySearchArtiste, [artiste, email, telephone], (err, rows) => {
-        if(err) {
-            console.error(err.message);
-            res.json({
-                message: "Erreur lors de l'insertion dans la base de données",
-            });
-            return;
-        }
-
-        let artisteId;
-        if(rows !== undefined) {
-            artisteId = rows[0].id
-            insertOeuvre(res, artisteId, artiste, titre, commentaire);
-        } else {
-            const queryAddArtiste = "INSERT INTO artiste (nom, email, telephone) VALUES (?, ?, ?)";
-            db.run(queryAddArtiste, [artiste, email, telephone], function(err) {
-                if(err) {
-                    console.error(err.message);
-                    res.json({
-                        message: "Erreur lors de l'insertion dans la base de données",
-                    });
-                    return;
-                }
-                artisteId = this.lastID;
-                insertOeuvre(res, artisteId, titre, commentaire);
-            });
-        }
-    });
-});
-
-function insertOeuvre(reponseHtpp, artisteId, titre, commentaire) {
-    const dateDeCreation = Math.floor(Date.now() / 1000);
-    const queryAddOeuvre = `INSERT INTO oeuvre
-        (artiste_id, titre, description, date_de_creation, compteur_jaime, compteur_jaime_pas)
-        VALUES (?, ?, ?, ?, ?, ?)`;
-
-    db.run(queryAddOeuvre, [artisteId, titre, commentaire, dateDeCreation, 0, 0], (err) => {
-        if(err) {
-            console.error(err.message);
-            reponseHtpp.json({
-                message: "Erreur lors de l'insertion dans la base de données",
-            });
-            return;
-        }
-        reponseHtpp.json({ message: "Votre œuvre a été soumise avec succès !" });
-    });
-}
-
-app.get("/oeuvres", (req, res) => {
-  db.all("SELECT * FROM SoumissionsOeuvre", [], (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    res.json(rows);
-  });
-});
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+app.listen(port, () => console.log(`Serveur en écoute sur le port ${port}`));

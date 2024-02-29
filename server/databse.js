@@ -1,22 +1,34 @@
+// Importation du module sqlite3 pour interagir avec la base de données SQLite
 const sqlite3 = require("sqlite3").verbose();
+
+// Création d'une instance de la base de données SQLite
+// Le chemin vers le fichier de base de données est spécifié : "./server/mydb.sqlite3"
+// Le mode d'ouverture est spécifié comme OPEN_READWRITE
+// Une fonction de rappel est fournie pour gérer les erreurs ou les succès de l'ouverture
 const db = new sqlite3.Database(
   "./server/mydb.sqlite3",
   sqlite3.OPEN_READWRITE,
   (err) => {
+    // Si une erreur survient lors de l'ouverture de la base de données
     if (err) {
       console.error("Erreur lors de l'ouverture de la base de données", err);
     } else {
+      // Si aucune erreur n'est survenue, affiche un message indiquant la connexion réussie à la base de données
       console.log("Connecté à la base de données SQLite.");
     }
   }
 );
 
+// Définition d'une fonction pour créer et initialiser la base de données
 function createDb() {
+  // Sérialisation des opérations sur la base de données pour s'assurer qu'elles s'exécutent séquentiellement
   db.serialize(function () {
+    // Suppression des tables existantes s'il y en a
     db.run(`DROP TABLE IF EXISTS artiste`);
     db.run(`DROP TABLE IF EXISTS oeuvre`);
     db.run(`DROP TABLE IF EXISTS SoumissionsOeuvre`);
 
+    // Création de la table "artiste" avec ses colonnes
     db.run(`
       CREATE TABLE artiste (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,6 +37,7 @@ function createDb() {
         telephone TEXT
       )`);
 
+    // Création de la table "oeuvre" avec ses colonnes et une contrainte de clé étrangère
     db.run(`
       CREATE TABLE oeuvre (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -36,24 +49,17 @@ function createDb() {
         compteur_jaime_pas INTEGER,
         FOREIGN KEY(artiste_id) REFERENCES artiste(id) ON DELETE CASCADE
       )`);
-
- db.run(`
-      CREATE TABLE SoumissionsOeuvre (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        prenom TEXT NOT NULL,
-        nom TEXT NOT NULL,
-        email TEXT NOT NULL,
-        telephone TEXT,
-        commentaire TEXT,
-        dateSoumission DATETIME DEFAULT (datetime('now','localtime'))
-      )`);
-
   });
+
+  // Insertion de données initiales dans les tables "artiste" et "oeuvre"
   db.serialize(function () {
+    // Insertion d'un artiste avec ses détails dans la table "artiste"
     db.run(
       `INSERT INTO artiste (id, nom, email, telephone) VALUES (?, ?, ?, ?)`,
       [1, "Jerome Floyd", "VZlT3@example.com", "0645125596"]
     );
+
+    // Insertion d'une oeuvre avec ses détails dans la table "oeuvre"
     db.run(
       `INSERT INTO oeuvre (artiste_id, titre, description, date_de_creation, compteur_jaime, compteur_jaime_pas) VALUES (?, ?, ?, ?, ?, ?)`,
       [
@@ -74,6 +80,7 @@ function createDb() {
   });
 }
 
+// Exportation de la base de données et de la fonction de création de la base de données
 module.exports = {
   db,
   createDb,

@@ -1,4 +1,4 @@
-// menu burger
+// Menu burger
 function toggleMenu() {
   var menu = document.getElementById("menuBurgerDesign");
   menu.classList.toggle("menuShown");
@@ -13,7 +13,6 @@ function applyGlitchEffect() {
     title.classList.remove("glitch");
   }, 1000);
 }
-
 function randomGlitchEffect() {
   const minTime = 10000;
   const maxTime = 2000;
