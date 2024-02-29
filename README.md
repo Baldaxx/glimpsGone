@@ -11,19 +11,8 @@ Ce projet implémente une API et une interface web pour une galerie d'art en lig
 - Validation de formulaire côté client avec Parsley.
 - Effets d'animation sur l'interface utilisateur.
 
-## Installation
-
-Assurez-vous d'avoir Node.js installé sur votre machine. Ensuite, suivez ces étapes pour configurer le projet :
-
-```bash
-git clone <https://github.com/Baldaxx/glimpsGone>
-cd <glimpsGone>
-npm install
-Lancement du serveur
-node server/server.js
-Vous pouvez accéder à l'interface utilisateur en ouvrant http://localhost:3000 dans votre navigateur.
-
 ## Utilisation de l'API
+
 L'API expose plusieurs routes pour interagir avec les données des artistes et des œuvres :
 
 GET /api/oeuvres: Récupère toutes les œuvres d'art depuis la base de données.
@@ -36,6 +25,20 @@ POST /api/oeuvres/soumettre: Soumet une nouvelle œuvre d'art par un artiste.
 Contributions
 Nous accueillons les contributions ! Si vous avez des suggestions d'amélioration ou des corrections, n'hésitez pas à contacter l'équipe.
 
+## Installation
+
+Assurez-vous d'avoir Node.js installé sur votre machine. Ensuite, suivez ces étapes pour configurer le projet :
+
+```bash
+git clone <https://github.com/Baldaxx/glimpsGone>
+cd <glimpsGone>
+npm install
+Lancement du serveur
+node server/server.js
+Vous pouvez accéder à l'interface utilisateur en ouvrant http://localhost:3000 dans votre navigateur.```
+
+=====================================================================================
 Liens
-Trello pour suivre l'avancement du projet.
-Figma pour visualiser le design de l'application.
+Trello pour suivre l'avancement du projet :https://trello.com/b/Lw47hmlG/ecf  
+
+Figma pour visualiser le design de l'application : https://www.figma.com/file/F07Ghcazd2HIpGqRicBDML/Untitled?type=design&node-id=0-1&mode=design&t=er3rzg6iYGjfVrQv-0
