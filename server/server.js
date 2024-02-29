@@ -12,6 +12,10 @@ const {
 
 const app = express();
 const port = 3000;
+<<<<<<< HEAD
+=======
+const { db, createDb } = require("./databse"); 
+>>>>>>> 639af26a42da9c19cbb7d7e47da98433ff4a57b4
 
 createDb(); // Initialise la base de données au démarrage du serveur
 
