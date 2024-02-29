@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const { db, createDb } = require("./databse"); // 
+const { db, createDb } = require("./databse"); 
 
 createDb();
 
