@@ -25,11 +25,11 @@ function submitForm() {
 
   // Crée un objet contenant les données du formulaire
   const formObject = {
-    prenom: inputPrenom,
-    nom: inputNom,
+    artiste: inputPrenom,
+    titre: inputNom,
     email: inputEmail,
     telephone: inputTelephone,
-    commentaire: inputCommentaire,
+    description: inputCommentaire,
   };
 
   // Envoie les données du formulaire au serveur via une requête POST

@@ -1,5 +1,4 @@
 const express = require("express");
-const { createDb } = require("./databse"); 
 const {
   recupererOeuvres,
   ajouterOeuvre,
@@ -12,10 +11,7 @@ const {
 
 const app = express();
 const port = 3000;
-<<<<<<< HEAD
-=======
-const { db, createDb } = require("./databse"); 
->>>>>>> 639af26a42da9c19cbb7d7e47da98433ff4a57b4
+const { db, createDb } = require("./databse");
 
 createDb(); // Initialise la base de données au démarrage du serveur
 
@@ -39,7 +35,8 @@ app.get(
 app.post(
   "/api/oeuvres",
   gestionAsync(async (req, res) => {
-    const id = await ajouterOeuvre(req.body);
+    const artistId = await creerArtiste(req.body.artiste, req.body.email, req.body.telephone)
+    const id = await ajouterOeuvre(artistId, req.body.titre, req.body.description);
     res.json({ message: "Succès", donnee: req.body, id });
   })
 );
@@ -77,7 +74,7 @@ app.post(
   "/api/artistes",
   gestionAsync(async (req, res) => {
     const { nom, email, telephone } = req.body;
-    const id = await creerArtiste({ nom, email, telephone });
+    const id = await creerArtiste(nom, email, telephone);
     res.json({ message: "Artiste créé avec succès", id });
   })
 );
