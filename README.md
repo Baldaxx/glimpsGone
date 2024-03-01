@@ -65,8 +65,8 @@ Je suis ouverte à la contribution, n'hesitez pas => virginie.bm13@icloud.com
 Assurez-vous d'avoir Node.js installé sur votre machine. Ensuite, suivez ces étapes pour configurer le projet :
 
 ```bash
-git clone <https://github.com/Baldaxx/glimpsGone>
-cd <glimpsGone>
+git clone https://github.com/Baldaxx/glimpsGone
+cd glimpsGone
 npm install
 node server/server.js
 Vous pouvez accéder à l'interface utilisateur en ouvrant http://localhost:3000 dans votre navigateur.
