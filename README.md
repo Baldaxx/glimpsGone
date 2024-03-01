@@ -2,6 +2,8 @@
 
 Ce projet est une application web de galerie d'art qui permet aux utilisateurs de visualiser, aimer, ne pas aimer des œuvres d'art et de naviguer entre elles. Les artistes peuvent soumettre leurs œuvres via un formulaire de contact intégré. Ils peuvent egalement me communiquer directement via un formulaire de contact. L'application utilise Express.js pour le backend, et des technologies front-end comme HTML, CSS, et JavaScript pour l'interface utilisateur.
 
+---
+
 1. Développement
 
 * Front-end: HTML, CSS, JavaScript
@@ -11,6 +13,8 @@ Ce projet est une application web de galerie d'art qui permet aux utilisateurs d
 * Base de données: SQLite 3
 * Api Facebook pour le partage
 
+---
+
 2. Fonctionnalités
 
 * Visualisation des œuvres: Les utilisateurs peuvent voir les œuvres d'art avec son titre, son artiste, l'année de sa création et sa description.
@@ -19,6 +23,8 @@ Ce projet est une application web de galerie d'art qui permet aux utilisateurs d
 * Partage sur Facebook.
 * Soumission d'œuvres: Les artistes peuvent soumettre leurs œuvres d'art en remplissant un formulaire. 
 * Contact : les artistes peuvent ecrire un message a la galerie d'art, les informations soumises sont envoyées via email à l'administrateur de la galerie.
+
+---
 
 3. Utilisation de l'API
 
@@ -30,6 +36,8 @@ L'API expose plusieurs routes pour interagir avec les données des artistes et d
 app.post("/api/oeuvres/:id/jaime")
 * Route POST similaire pour les "j'aime pas". app.post("/api/oeuvres/:id/jaimepas")
 
+---
+
 ## Liens
 
 Trello pour suivre l'avancement du projet :<https://trello.com/b/Lw47hmlG/ecf>  
@@ -37,6 +45,8 @@ Trello pour suivre l'avancement du projet :<https://trello.com/b/Lw47hmlG/ecf>
 Figma pour visualiser le design de l'application : <https://www.figma.com/file/F07Ghcazd2HIpGqRicBDML/Untitled?type=design&node-id=0-1&mode=design&t=er3rzg6iYGjfVrQv-0>
 
 Documentation de Parsley : https://parsleyjs.github.io/Parsley-1.x/documentation.html
+
+---
 
 4. Les ameliorerations dans le turfu
 
@@ -46,6 +56,8 @@ Documentation de Parsley : https://parsleyjs.github.io/Parsley-1.x/documentation
 * Création et ce qui en decoule d'un "S'inscrire" et "Se connecter".
 * La recherche d'oeuvre par artiste/par nom/année...
 Je suis ouverte à la contribution, n'hesitez pas => virginie.bm13@icloud.com
+
+---
 
 ## Installation
 
