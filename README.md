@@ -9,12 +9,14 @@ Validation du formulaire: Parsley.js
 Back-end: Express.js
 Envoi d'email: SMTPJS
 Base de données: SQLite 3
+Api Facebook pour le partage
 
 ## Fonctionnalités
 
 Visualisation des œuvres: Les utilisateurs peuvent voir les œuvres d'art avec son titre, son artiste, l'année de sa création et sa description.
 Navigation: Les utilisateurs peuvent naviguer entre les différentes œuvres d'art grâce aux boutons "Suivant" et "Précédent".
 Interactions: Les utilisateurs peuvent exprimer leur appréciation des œuvres via des boutons "J'aime" et "J'aime pas".
+Partage sur Facebook.
 Soumission d'œuvres: Les artistes peuvent soumettre leurs œuvres d'art en remplissant un formulaire. 
 contact : les artistes peuvent ecrire un message a la galerie d'art, les informations soumises sont envoyées via email à l'administrateur de la galerie.
 
@@ -33,6 +35,8 @@ route POST similaire pour les "j'aime pas". app.post("/api/oeuvres/:id/jaimepas"
 Trello pour suivre l'avancement du projet :<https://trello.com/b/Lw47hmlG/ecf>  
 
 Figma pour visualiser le design de l'application : <https://www.figma.com/file/F07Ghcazd2HIpGqRicBDML/Untitled?type=design&node-id=0-1&mode=design&t=er3rzg6iYGjfVrQv-0>
+
+Documentation de Parsley : https://parsleyjs.github.io/Parsley-1.x/documentation.html
 
 ## Les ameliorerations dans le turfu
 
