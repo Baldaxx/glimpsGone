@@ -1,47 +1,64 @@
+// Importe le module Express pour créer et gérer un serveur HTTP.
 const express = require("express");
+// Importe les fonctions de manipulation de la base de données depuis le fichier 'repository.js'.
 const {
   recupererOeuvres,
   ajouterOeuvre,
   augmenterJaimes,
   augmenterJaimesPas,
-  trouverArtiste,
   creerArtiste,
-  soumettreOeuvre,
 } = require("./repository");
 
+// Crée une instance d'application Express.
 const app = express();
+// Définit le port sur lequel le serveur va écouter.
 const port = 3000;
+// Importe les configurations de la base de données et la fonction pour la créer.
 const { db, createDb } = require("./databse");
 
-createDb(); // Initialise la base de données au démarrage du serveur
+// Exécute la fonction pour initialiser la base de données au démarrage du serveur.
+createDb();
 
-app.use(express.static("public")); // Sert les fichiers statiques du dossier 'public'
-app.use(express.json()); // Permet au serveur de traiter le JSON dans le corps des requêtes
+// Configure le serveur pour servir les fichiers statiques du dossier 'public'.
+app.use(express.static("public"));
+// Active le middleware pour analyser les corps de requête JSON.
+app.use(express.json());
 
-// Fonction pour simplifier la gestion des promesses dans les routes
+// Définit une fonction pour simplifier la gestion des promesses dans les routes Express.
 const gestionAsync = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);
 
-// Route pour récupérer toutes les œuvres d'art
+// Définit une route GET pour récupérer toutes les œuvres d'art.
 app.get(
   "/api/oeuvres",
   gestionAsync(async (req, res) => {
+    // Appelle la fonction pour récupérer les œuvres et envoie le résultat en JSON.
     const oeuvres = await recupererOeuvres();
     res.json(oeuvres);
   })
 );
 
-// Route pour ajouter une nouvelle œuvre
+// Définit une route POST pour ajouter une nouvelle œuvre.
 app.post(
   "/api/oeuvres",
   gestionAsync(async (req, res) => {
-    const artistId = await creerArtiste(req.body.artiste, req.body.email, req.body.telephone)
-    const id = await ajouterOeuvre(artistId, req.body.titre, req.body.description);
+    // Crée un nouvel artiste et ajoute une œuvre avec les données reçues dans le corps de la requête.
+    const artistId = await creerArtiste(
+      req.body.artiste,
+      req.body.email,
+      req.body.telephone
+    );
+    const id = await ajouterOeuvre(
+      artistId,
+      req.body.titre,
+      req.body.description
+    );
+    // Envoie une réponse JSON pour confirmer l'ajout de l'œuvre.
     res.json({ message: "Succès", donnee: req.body, id });
   })
 );
 
-// Route pour augmenter le compteur de "j'aime" d'une œuvre spécifique
+// Définit une route POST pour augmenter le compteur de "j'aime" d'une œuvre spécifique.
 app.post(
   "/api/oeuvres/:id/jaime",
   gestionAsync(async (req, res) => {
@@ -50,7 +67,7 @@ app.post(
   })
 );
 
-// Route similaire pour les "j'aime pas"
+// Définit une route POST similaire pour les "j'aime pas".
 app.post(
   "/api/oeuvres/:id/jaimepas",
   gestionAsync(async (req, res) => {
@@ -59,17 +76,7 @@ app.post(
   })
 );
 
-// Recherche d'artiste par nom, email, et téléphone
-app.get(
-  "/api/artistes/rechercher",
-  gestionAsync(async (req, res) => {
-    const { nom, email, telephone } = req.query;
-    const artistes = await trouverArtiste({ nom, email, telephone });
-    res.json(artistes);
-  })
-);
-
-// Création d'un nouvel artiste
+// Définit une route POST pour créer un nouvel artiste avec les données reçues.
 app.post(
   "/api/artistes",
   gestionAsync(async (req, res) => {
@@ -79,19 +86,11 @@ app.post(
   })
 );
 
-// Soumission d'une nouvelle œuvre par un artiste
-app.post(
-  "/api/oeuvres/soumettre",
-  gestionAsync(async (req, res) => {
-    const id = await soumettreOeuvre(req.body);
-    res.json({ message: "Œuvre soumise avec succès", id });
-  })
-);
-
-// Gestionnaire d'erreurs centralisé pour capturer toutes les erreurs non gérées
+// Configure un gestionnaire d'erreurs pour capturer et traiter toutes les erreurs non gérées.
 app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).json({ erreur: "Une erreur est survenue" });
+  console.error(err); // Affiche l'erreur dans la console du serveur.
+  res.status(500).json({ erreur: "Une erreur est survenue" }); // Envoie une réponse d'erreur au client.
 });
 
+// Lance le serveur pour écouter sur le port spécifié.
 app.listen(port, () => console.log(`Serveur en écoute sur le port ${port}`));

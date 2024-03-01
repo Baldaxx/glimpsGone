@@ -1,114 +1,113 @@
-// Fonction pour afficher une oeuvre dans la galerie
+// Cette fonction est conçue pour afficher les détails d'une oeuvre spécifique dans la galerie web.
 function afficheOeuvre(oeuvre) {
-  // Vérifie si l'oeuvre est valide
+  // Premièrement, vérifie que l'oeuvre existe et a une date de création définie. Si ce n'est pas le cas, log une erreur.
   if (!oeuvre || oeuvre.date_de_creation === undefined) {
     console.error("Aucune oeuvre à afficher.");
     return;
   }
 
-  // Récupère l'année de création de l'oeuvre
-const anneeDeCreation = new Date(oeuvre.date_de_creation * 1000).getFullYear();
+  // Convertit la date de création, en timestamp, en année.
+  const anneeDeCreation = new Date(oeuvre.date_de_creation * 1000).getFullYear();
 
-  // Affiche le titre de l'oeuvre
+  // Met à jour le titre de l'oeuvre sur la page, incluant le nom de l'artiste et l'année de création.
   const titreOeuvreElement = document.getElementById("titreOeuvre");
   titreOeuvreElement.innerHTML = `${oeuvre.titre}<br><span>${oeuvre.artiste} ${anneeDeCreation}</span>`;
   titreOeuvreElement.style.display = "block";
 
-  // Affiche la description de l'oeuvre
+  // Met à jour la description de l'oeuvre sur la page.
   const descriptionOeuvreElement = document.getElementById("descriptionOeuvre");
   descriptionOeuvreElement.innerHTML = oeuvre.description;
   descriptionOeuvreElement.style.display = "block";
 
-  // Affiche le nombre de 'J'aime' de l'oeuvre
+  // Met à jour le nombre de 'J'aime' de l'oeuvre sur la page.
   const jaimeOeuvreElement = document.getElementById("jaimeOeuvre");
   jaimeOeuvreElement.innerHTML = oeuvre.compteur_jaime;
 
-  // Affiche le nombre de 'J'aime pas' de l'oeuvre
+  // Met à jour le nombre de 'J'aime pas' de l'oeuvre sur la page.
   const jaimePasOeuvreElement = document.getElementById("jaimePasOeuvre");
   jaimePasOeuvreElement.innerHTML = oeuvre.compteur_jaime_pas;
 
-  // Affiche le compteur JJ de l'oeuvre
+  // Affiche le compteur de 'J'aime' et 'J'aime pas'.
   const compteurJJElement = document.getElementById("compteurJJ");
   compteurJJElement.style.display = "block";
 }
 
-// Tableau contenant toutes les oeuvres
+// Initialisation d'un tableau pour stocker toutes les oeuvres récupérées depuis l'API.
 let toutesLesOeuvres = [];
-// Identifiant de l'oeuvre courante dans le tableau
+// Variable pour suivre l'identifiant de l'oeuvre actuellement affichée.
 let identifiantOeuvreCourante = 0;
 
-// Fonction pour récupérer et afficher une oeuvre
+// Fonction pour récupérer les oeuvres depuis l'API et afficher la première oeuvre récupérée.
 function recupererEtAfficherOeuvre() {
-  // Effectue une requête GET pour récupérer les oeuvres depuis l'API
   fetch("/api/oeuvres")
     .then((response) => response.json())
     .then((data) => {
-      toutesLesOeuvres = data; // Stocke les oeuvres récupérées dans le tableau
+      toutesLesOeuvres = data;
       console.log(toutesLesOeuvres);
-      // Vérifie s'il y a des oeuvres à afficher
       if (toutesLesOeuvres.length === 0) {
-        window.location.href = "galerieDown.html"; // Redirige vers une page spécifique s'il n'y a pas d'oeuvre
+        // Si aucune oeuvre n'est disponible, redirige vers la page galerie down.
+        window.location.href = "galerieDown.html";
       } else {
-        afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]); // Affiche la première oeuvre du tableau
+        // Sinon, affiche la première oeuvre du tableau.
+        afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]);
       }
     })
-    .catch((error) => console.error("Erreur :", error)); // Affiche une erreur en cas d'échec de la requête
+    .catch((error) => console.error("Erreur :", error));
 }
 
-// Fonction d'initialisation du script
+// Cette fonction est exécutée dès que la page web est complètement chargée.
+// Son rôle est de démarrer le processus de récupération des données des œuvres d'art
+// depuis le serveur et de les afficher sur la page pour que l'utilisateur puisse les voir.
 function initialisation() {
-  recupererEtAfficherOeuvre(); // Appelle la fonction pour récupérer et afficher une oeuvre
+  recupererEtAfficherOeuvre();
+}
 
-  // Configuration des boutons d'interaction avec les oeuvres
-
-  // Bouton 'J'aime'
+  // Ajoute des écouteurs d'événements aux boutons pour permettre aux utilisateurs d'interagir avec les oeuvres.
   document.getElementById("btn_jaime").addEventListener("click", function () {
     fetch(
-      `/api/oeuvres/${toutesLesOeuvres[identifiantOeuvreCourante].id}/jaime`, // Effectue une requête POST pour incrémenter les 'J'aime' de l'oeuvre
+      `/api/oeuvres/${toutesLesOeuvres[identifiantOeuvreCourante].id}/jaime`,
       { method: "POST" }
     )
       .then((response) => response.json())
       .then(() => {
-        recupererEtAfficherOeuvre(); // Réaffiche l'oeuvre après l'incrémentation
+        recupererEtAfficherOeuvre(); // Recharge l'oeuvre actuelle pour mettre à jour les compteurs.
       });
   });
 
-  // Bouton 'J'aime pas'
   document
     .getElementById("btn_jaime_pas")
     .addEventListener("click", function () {
       fetch(
-        `/api/oeuvres/${toutesLesOeuvres[identifiantOeuvreCourante].id}/jaimePas`, // Effectue une requête POST pour incrémenter les 'J'aime pas' de l'oeuvre
+        `/api/oeuvres/${toutesLesOeuvres[identifiantOeuvreCourante].id}/jaimePas`,
         { method: "POST" }
       )
         .then((response) => response.json())
         .then(() => {
-          recupererEtAfficherOeuvre(); // Réaffiche l'oeuvre après l'incrémentation
+          recupererEtAfficherOeuvre(); 
         });
     });
 
-  // Bouton 'Suivant'
+  // Permet à l'utilisateur de naviguer à l'oeuvre suivante.
   document.getElementById("btn_suivant").addEventListener("click", function () {
     if (identifiantOeuvreCourante + 1 < toutesLesOeuvres.length) {
-      identifiantOeuvreCourante++; // Incrémente l'identifiant de l'oeuvre courante
-      afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]); // Affiche l'oeuvre suivante
+      identifiantOeuvreCourante++;
+      afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]);
     } else {
-      window.location.href = "galerieFin.html"; // Redirige vers une page spécifique s'il n'y a plus d'oeuvre à afficher
+      window.location.href = "galerieFin.html"; // S'il n'y a plus d'oeuvre à afficher, redirige vers la page galerie fin.
     }
   });
 
-  // Bouton 'Précédent'
+  // Permet à l'utilisateur de revenir à l'oeuvre précédente.
   document
     .getElementById("btn_precedent")
     .addEventListener("click", function () {
       if (identifiantOeuvreCourante - 1 >= 0) {
-        identifiantOeuvreCourante--; // Décrémente l'identifiant de l'oeuvre courante
-        afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]); // Affiche l'oeuvre précédente
+        identifiantOeuvreCourante--;
+        afficheOeuvre(toutesLesOeuvres[identifiantOeuvreCourante]);
       } else {
-    window.location.href = "galerieFin.html"; // Affiche une alerte s'il n'y a plus d'oeuvre à afficher
+        window.location.href = "galerieFin.html"; // Idem qu'au dessus
       }
     });
-}
 
-// Attache l'événement d'initialisation lorsque le DOM est entièrement chargé
+// Exécute la fonction d'initialisation une fois que le contenu de la page est entièrement chargé.
 document.addEventListener("DOMContentLoaded", initialisation);
