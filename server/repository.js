@@ -1,5 +1,5 @@
 // Importe la configuration de la base de données depuis le fichier 'databse.js'.
-const { db } = require("./databse");
+const { db } = require("./database");
 
 /**
  * Exécute une requête SQL asynchrone et gère le résultat avec une promesse.

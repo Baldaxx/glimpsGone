@@ -14,7 +14,7 @@ const app = express();
 // Définit le port sur lequel le serveur va écouter.
 const port = 3000;
 // Importe les configurations de la base de données et la fonction pour la créer.
-const { db, createDb } = require("./databse");
+const { db, createDb } = require("./database");
 
 // Exécute la fonction pour initialiser la base de données au démarrage du serveur.
 createDb();

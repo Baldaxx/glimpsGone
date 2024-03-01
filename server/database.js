@@ -53,13 +53,13 @@ function createDb() {
 
   // Insertion de données initiales dans les tables "artiste" et "oeuvre"
   db.serialize(function () {
-    // Insertion d'un artiste avec ses détails dans la table "artiste"
+    // Insertion d'un artiste par defaut avec ses détails dans la table "artiste"
     db.run(
       `INSERT INTO artiste (id, nom, email, telephone) VALUES (?, ?, ?, ?)`,
       [1, "Jerome Floyd", "VZlT3@example.com", "0645125596"]
     );
 
-    // Insertion d'une oeuvre avec ses détails dans la table "oeuvre"
+    // Insertion d'une oeuvre par defaut avec ses détails dans la table "oeuvre"
     db.run(
       `INSERT INTO oeuvre (artiste_id, titre, description, date_de_creation, compteur_jaime, compteur_jaime_pas) VALUES (?, ?, ?, ?, ?, ?)`,
       [
