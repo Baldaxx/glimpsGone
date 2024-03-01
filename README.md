@@ -1,10 +1,11 @@
-# Projet de Galerie d'Art en Ligne
+Projet de Galerie d'Art en Ligne
+================================
 
 Ce projet est une application web de galerie d'art qui permet aux utilisateurs de visualiser, aimer, ne pas aimer des œuvres d'art et de naviguer entre elles. Les artistes peuvent soumettre leurs œuvres via un formulaire de contact intégré. Ils peuvent egalement me communiquer directement via un formulaire de contact. L'application utilise Express.js pour le backend, et des technologies front-end comme HTML, CSS, et JavaScript pour l'interface utilisateur.
 
 ---
 
-1. Développement
+1. # Développement
 
 * Front-end: HTML, CSS, JavaScript
 * Securité du formulaire: Parsley.js
@@ -15,7 +16,7 @@ Ce projet est une application web de galerie d'art qui permet aux utilisateurs d
 
 ---
 
-2. Fonctionnalités
+2. # Fonctionnalités
 
 * Visualisation des œuvres: Les utilisateurs peuvent voir les œuvres d'art avec son titre, son artiste, l'année de sa création et sa description.
 * Navigation: Les utilisateurs peuvent naviguer entre les différentes œuvres d'art grâce aux boutons "Suivant" et "Précédent".
@@ -26,7 +27,7 @@ Ce projet est une application web de galerie d'art qui permet aux utilisateurs d
 
 ---
 
-3. Utilisation de l'API
+3. # Utilisation de l'API
 
 L'API expose plusieurs routes pour interagir avec les données des artistes et des œuvres :
 
@@ -48,7 +49,7 @@ Documentation de Parsley : https://parsleyjs.github.io/Parsley-1.x/documentation
 
 ---
 
-4. Les ameliorerations dans le turfu
+4. # Les ameliorerations dans le turfu
 
 * Retravailler les fonctionnalités des compteurs "J'aime" et "Je n'aime pas" pour éviter qu'ils ne soient incrémentés indéfiniment, et pour s'assurer que cliquer sur "J'aime" désactive automatiquement "Je n'aime pas", et vice-versa.
 * Moderation des oeuvres ajouter par les artistes avec une page admin (creer = pageAdmin.html) avant leurs mises en ligne.
