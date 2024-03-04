@@ -1,11 +1,14 @@
-Projet de Glimps Gone, l'extravagante galerie d'art des oeuvres invisibles
-==========================================================================
+### Glimps Gone
+### L'extravagante galerie d'art des oeuvres invisibles
 
-Ce projet est une application web de galerie d'art qui permet aux utilisateurs de visualiser, aimer, ne pas aimer des œuvres d'art invisible et de naviguer entre elles. Les artistes peuvent soumettre leurs œuvres via un formulaire de contact intégré. Ils peuvent egalement communiquer directement via un formulaire de contact avec la galerie. L'application utilise Express.js pour le backend, et des technologies front-end comme HTML, CSS, et JavaScript pour l'interface utilisateur.
-
+### Introduction
+Je vous présente "Glimps Gone" ou l'extravagante galerie d'art des oeuvres invisibles ! La galerie
+a été conçu pour mon projet ECF 2024, c' est aussi le résultat de ma passion profonde pour l'art ainsi
+que de mon désir de fusionner ces intérêts avec ma formation.
+En tant que créatrice de l'application, j'ai visé à construire un espace numérique proposant une
+expérience utilisateur à la fois immersive et interactive
 ---
-
-1. # Développement
+### Développement
 
 - **Design** : Photoshop, Dafont
 - **Front-end** : HTML, CSS, JavaScript
@@ -17,48 +20,76 @@ Ce projet est une application web de galerie d'art qui permet aux utilisateurs d
 - **Verification du formulaire** : Parsley.js
 
 ---
+### Conception et Développement
 
-2. # Fonctionnalités
+#### Phase de conception
 
-* Visualisation des œuvres: Les utilisateurs peuvent voir les œuvres d'art avec son titre, son artiste, l'année de sa création et sa description.
-* Navigation: Les utilisateurs peuvent naviguer entre les différentes œuvres d'art grâce aux boutons "Suivant" et "Précédent".
-* Interactions: Les utilisateurs peuvent exprimer leur appréciation des œuvres via des boutons "J'aime" et "J'aime pas".
-* Partage sur Facebook.
-* Soumission d'œuvres: Les artistes peuvent soumettre leurs œuvres d'art en remplissant un formulaire. 
-* Contact : les artistes peuvent ecrire un message a la galerie d'art, les informations soumises sont envoyées via email à l'administrateur de la galerie.
+Outils de Design : Suite à des recherches sur des sites de galerie d'art afin d'inspirer mon design, j'ai commencé par dessiner ceux-ci sur Photoshop, validant mon logo. En ce qui concerne ma palette couleur, je les ai validées sur Coolors.com. Mes polices d'écriture quant à elles ont été validées et téléchargées dans mon dossier font sur Dafont.com. Pour le maquettage de l'interface et l'expérience utilisateur, j'ai utilisé Figma ce qui a permis de visualiser et de partager facilement le design de l'application ainsi que la réflexion sur l'expérience utilisateur. J'ai donc pu commencer mes user stories suite à la finalité de ma maquette.
 
----
+#### Planification et Gestion de Projet
 
-3. # Utilisation de l'API
+Trello a servi à organiser et suivre l'avancement du projet, facilitant ainsi la gestion des tâches découlant de mes user stories et en structurant les différentes phases de développement de la conception à la réalisation.
 
-L'API expose plusieurs routes pour interagir avec les données des artistes et des œuvres :
+Cette approche m'a permis de visualiser clairement les exigences du projet et de les organiser de manière logique tout en offrant une vue d'ensemble du processus. De plus, la numérotation des tâches en fonction des user stories et des commits GitHub facilite la traçabilité pour la relecture d'une tierce personne.
 
-* Route GET pour récupérer toutes les œuvres d'art. app.get("/api/oeuvres")
-* Route POST pour ajouter une nouvelle œuvre. app.post("/api/oeuvres")
-* Route POST pour augmenter le compteur de "j'aime" d'une œuvre spécifique. 
-app.post("/api/oeuvres/:id/jaime")
-* Route POST similaire pour les "j'aime pas". app.post("/api/oeuvres/:id/jaimepas")
+Présentation du projet : J'utilise actuellement Prezi pour vous présenter mon projet de façon interactive.
 
----
+#### Développement Front-End
 
-## Liens
+Technologies Utilisées : Pour le front-end, j'ai choisi HTML, CSS, et JavaScript pour créer une interface simple et fluide de navigation entre les différentes œuvres d'art. J'ai choisi d'utiliser le framework BootStrap pour rendre mes pages responsive.
 
-Trello pour suivre l'avancement du projet :<https://trello.com/b/Lw47hmlG/ecf>  
+Évidemment, j'ai également dû utiliser des media queries pour rendre le site complètement responsive.
 
-Figma pour visualiser le design de l'application : <https://www.figma.com/file/F07Ghcazd2HIpGqRicBDML/Untitled?type=design&node-id=0-1&mode=design&t=er3rzg6iYGjfVrQv-0>
+#### Développement Back-End
 
-Documentation de Parsley : https://parsleyjs.github.io/Parsley-1.x/documentation.html
+Serveur et API : J'ai utilisé Node.js et Express.js pour interagir simplement avec le serveur et concevoir ma propre API.
 
----
+Cela m'a permis d'ajuster précisément les fonctionnalités de la galerie, d'améliorer l'efficacité et surtout d'enrichir mes compétences techniques.
 
-4. # Les ameliorerations dans le turfu
+J'ai décidé de découpler mon code dans deux fichiers différents, server.js pour le serveur, l'API et la logique métier, et repository.js pour la logique d'accès aux données, aidant à organiser mon projet de façon claire et rendant le projet plus facile à modifier en distinguant bien les fonctions du serveur de celles liées aux données.
 
-* Retravailler les fonctionnalités des compteurs "J'aime" et "Je n'aime pas" pour éviter qu'ils ne soient incrémentés indéfiniment, et pour s'assurer que cliquer sur "J'aime" désactive automatiquement "Je n'aime pas", et vice-versa.
-* Moderation des oeuvres ajouter par les artistes avec une page admin (creer = pageAdmin.html) avant leurs mises en ligne.
-* L'ajout d'une fonctionnalité permettant aux artistes de s'inscrire et de disposer de leur propre page dédiée.
-* Création et ce qui en decoule d'un "S'inscrire" et "Se connecter".
-* La recherche d'oeuvre par artiste/par nom/année...
-* Je suis ouverte à la contribution, n'hesitez pas => virginie.bm13@icloud.com
+Si je décide de changer de système de base de données, par exemple MySQL, je n'aurai qu'à ne pas toucher au server.js !
+
+J'ai opté pour l'utilisation de la syntaxe async/await dans mon code pour simplifier la gestion des opérations asynchrones, rendant ainsi mon code plus lisible et facile à maintenir.
+
+"**Await**" met en pause l'exécution de la fonction async jusqu'à ce que la promesse soit résolue, puis retourne le résultat de cette promesse. Cela permet de gérer de manière synchrone des opérations asynchrones dans du code JavaScript.
+
+En ce qui concerne mes routes API :
+
+- Route GET pour récupérer toutes les œuvres d'art. `app.get("/api/oeuvres")`
+- Route POST pour ajouter une nouvelle œuvre. `app.post("/api/oeuvres")`
+- Route POST pour augmenter le compteur de "j'aime" d'une œuvre spécifique. `app.post("/api/oeuvres/:id/jaime")`
+- Route POST similaire pour les "j'aime pas". `app.post("/api/oeuvres/:id/jaimepas")`
+
+### Interaction avec la Base de Données
+
+Gestion des Données : J'ai choisi de coder entièrement ma base de données pour mon projet en utilisant SQLite plutôt que d'utiliser MySQL Workbench pour plusieurs raisons avantageuses.
+
+- La simplicité d'intégration et de déploiement de SQLite est exceptionnelle, étant donné qu'elle ne nécessite pas de serveur de base de données séparé.
+- Cette décision a encouragé une meilleure maîtrise des compétences en matière de bases de données.
+
+### Sécurité
+
+- **Prévention des Injections SQL** : Utilisation systématique de requêtes préparées pour toutes les interactions avec la base de données.
+- **Validation des Formulaires** : Intégration de la librairie Parsley.js pour une validation côté front.
+
+### Présentation des pages de la galerie
+
+- **Page d'accueil** : Présentation et explication du concept de la galerie d'art.
+- **Page galerie** : Présente toutes les œuvres d'art publiées par les artistes.
+- **Navigation et Interactions** : Permet de naviguer entre les œuvres et d'exprimer leur appréciation via des boutons "J'aime" et "Je n'aime pas".
+
+### Les améliorations à mettre en place
+
+- Passage de SQLite à MySQL pour accueillir plus de visiteurs.
+- HTTP à HTTPS
+- Retravailler les fonctionnalités des compteurs "J'aime" et "Je n'aime pas".
+- Modération des œuvres ajoutées par les artistes avec une page administrateur.
+- Ajout d'une fonctionnalité permettant aux artistes de s'inscrire et de disposer de leur propre page dédiée.
+
+### Conclusion
+
+Ce projet représente ma maîtrise en développement web et en design graphique à l'instant T et en 10 jours. Je suis ouverte à la collaboration virginie.bm13@icloud.com
 
 ---
 
