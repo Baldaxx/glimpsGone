@@ -1,18 +1,20 @@
-Projet de Galerie d'Art en Ligne
-================================
+Projet de Glimps Gone, l'extravagante galerie d'art des oeuvres invisibles
+==========================================================================
 
-Ce projet est une application web de galerie d'art qui permet aux utilisateurs de visualiser, aimer, ne pas aimer des œuvres d'art et de naviguer entre elles. Les artistes peuvent soumettre leurs œuvres via un formulaire de contact intégré. Ils peuvent egalement me communiquer directement via un formulaire de contact. L'application utilise Express.js pour le backend, et des technologies front-end comme HTML, CSS, et JavaScript pour l'interface utilisateur.
+Ce projet est une application web de galerie d'art qui permet aux utilisateurs de visualiser, aimer, ne pas aimer des œuvres d'art invisible et de naviguer entre elles. Les artistes peuvent soumettre leurs œuvres via un formulaire de contact intégré. Ils peuvent egalement communiquer directement via un formulaire de contact avec la galerie. L'application utilise Express.js pour le backend, et des technologies front-end comme HTML, CSS, et JavaScript pour l'interface utilisateur.
 
 ---
 
 1. # Développement
 
-* Front-end: HTML, CSS, JavaScript
-* Securité du formulaire: Parsley.js
-* Back-end: Express.js
-* Envoi d'email: SMTPJS
-* Base de données: SQLite 3
-* Api Facebook pour le partage
+- **Design** : Photoshop, Dafont
+- **Front-end** : HTML, CSS, JavaScript
+- **Sécurité contre les injections SQL** : Requête paramétrée
+- **Back-end** : Node.js Express.js
+- **Envoi d'e-mails** : SMTPJS
+- **Base de données** : SQLite 3
+- **Intégration de l'API Facebook** pour le partage
+- **Verification du formulaire** : Parsley.js
 
 ---
 
@@ -56,7 +58,7 @@ Documentation de Parsley : https://parsleyjs.github.io/Parsley-1.x/documentation
 * L'ajout d'une fonctionnalité permettant aux artistes de s'inscrire et de disposer de leur propre page dédiée.
 * Création et ce qui en decoule d'un "S'inscrire" et "Se connecter".
 * La recherche d'oeuvre par artiste/par nom/année...
-Je suis ouverte à la contribution, n'hesitez pas => virginie.bm13@icloud.com
+* Je suis ouverte à la contribution, n'hesitez pas => virginie.bm13@icloud.com
 
 ---
 

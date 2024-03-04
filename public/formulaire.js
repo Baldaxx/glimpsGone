@@ -6,7 +6,6 @@ $(document).ready(function () {
     defaultMessage: "Ce champ est obligatoire.",
   });
   Parsley.setLocale("fr");
-
 });
 
 
